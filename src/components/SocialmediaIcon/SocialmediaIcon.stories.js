@@ -5,14 +5,6 @@ import SocialmediaIcon from './SocialmediaIcon';
 export default {
   title: 'SocialmediaIcon',
   component: SocialmediaIcon,
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-      values: [
-        { name: 'dark', value: '#1D2225' }
-      ],
-    },
-  },
 };
 
 const Template = (args) => <SocialmediaIcon  {...args} />;
