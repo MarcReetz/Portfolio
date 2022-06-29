@@ -1,0 +1,48 @@
+@import "../../variabels.css";
+
+/* Need to redo color !! */
+
+.line {
+  height: 1px;
+  background-color: var(--main-text-color-dark);
+}
+
+.titleholder{
+  background-color: var(--main-text-color-dark);
+  height: 30px;
+  float: left;
+  display: flex;
+  font-family: 'Fira Code', monospace;
+  font-size: 25px;
+  align-items: center;
+  color: var(--secondary-text-color);
+}
+
+.titleholder h2::after{
+  z-index: -200;
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 15px solid var(--main-text-color-dark);
+  border-right: 15px  solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid var(--main-text-color-dark);
+}
+
+.titleholder h2{
+  font-size: 25px;
+  margin-left: 5px;
+  font-weight: 400;
+}
+
+.titleholder p{
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+  height: 30px;
+  font-size: 25px;
+  margin: 0;
+  padding-right: 5px;
+  background-color: var(--main-text-color-dark-dark);
+}

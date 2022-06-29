@@ -12,5 +12,5 @@ const Template = (args) => <ToggleSwitch {...args} />;
 export const First = Template.bind({})
 
 First.args = {
-  text:"click me"
+    text:"click me"
 }
