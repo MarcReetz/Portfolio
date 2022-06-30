@@ -9,9 +9,9 @@ export default {
 
 const Template = (args) => <SocialmediaIcon  {...args} />;
 
-export const Git = Template.bind({})
+export const SoIcon = Template.bind({})
 
-Git.args = {
+SoIcon.args = {
     link:"https://github.com/MarcReetz/Portfolio",
     src:"icons/github.png",
     alt:"github"  
