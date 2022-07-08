@@ -1,0 +1,22 @@
+@import  "../../variabels.css";
+
+.container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--main-text-color);
+  font-family: 'Albert Sans', sans-serif;
+  text-align: justify;
+  font-size: var(--text-medium);
+  box-sizing: border-box;
+  padding: 10px 50px 0 50px;
+}
+
+@media only screen and (min-width: 700px) {
+  .container{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 50px;
+
+  }
+}
