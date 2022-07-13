@@ -1,0 +1,44 @@
+@import  "../../variabels.css";
+
+.container{
+  height: 100vh;
+  width: 100vw;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.inner{
+  margin-left: 25px;
+}
+
+.container p {
+  color: var(--main-text-color-dark);
+  font-size: clamp(12px,0.5em,0.5em);
+  line-height: 0.9;
+  margin: 0 0 0.5em 0;
+}
+
+.container h1{
+  color: var(--main-text-color);
+  font-size: clamp(1em,1.5em,1.5em); 
+  line-height: 0.9;
+  margin: 0;
+}
+
+@media only screen and (min-width: 480px) {
+
+  .container{
+    font-size: 50px;
+  }
+
+  .inner{
+    margin-left: 50px;
+  }  
+}
+
+@media only screen and (min-width: 700px) {
+  .inner{
+    margin-left: 100px;
+  }  
+}
