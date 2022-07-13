@@ -7,7 +7,7 @@ i18next
   .use(HttpApi) // Registering the back-end plugin
   .init({
     // Remove resources from here
-    lng: "en",
+    lng: "de",
     fallbackLng:"en",
     interpolation: {
       escapeValue: false,
