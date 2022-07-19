@@ -6,9 +6,25 @@
   --secondary-text-color: #F4F5F6;
   --contrast-color: #E63946;
 
+  --selected-tech-color:#11D05D;
+  --high-relation-tech-color:#2FEE7C;
+  --medium-relation-tech-color:#6CF3A3;
+
   --screen-tabletS: 600px;
 
   --text-small: 1em;
   --text-medium: 1.5em;
   --text-big: 2em;
+}
+
+.selectedTechColor{
+  color: var(--selected-tech-color);
+}
+
+.highRelationTechColor{
+  color: var(--high-relation-tech-color);
+}
+
+.mediumRelationTechColor{
+  color: var(--medium-relation-tech-color);
 }

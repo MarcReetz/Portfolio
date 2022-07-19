@@ -1,0 +1,15 @@
+@import "../../variabels.css";
+
+.icon {
+  color: var(--secondary-text-color);
+  font-size: 50px;
+}
+
+.button {
+  background-color: var(--main-bg-color);
+  border: none;
+}
+
+.button:hover{
+  cursor: pointer;
+}
