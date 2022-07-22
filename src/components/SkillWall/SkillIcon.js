@@ -1,9 +1,8 @@
 import React from "react";
-import style from "./SkillIcon.module.css"
-import {vars} from "./../../variables"
+import style from "./SkillIcon.module.css";
+import { vars } from "./../../variables";
 
-export default function SkillIcon (props) {
-
+export default function SkillIcon(props) {
   let colorStyle = "";
 
   switch (props.icon.relations) {
@@ -14,7 +13,7 @@ export default function SkillIcon (props) {
       colorStyle = vars.color.highRelationTechColor;
       break;
     case 3:
-      colorStyle =vars.color.mediumRelationTechColor;
+      colorStyle = vars.color.mediumRelationTechColor;
       break;
     default:
       colorStyle = "";
@@ -22,12 +21,17 @@ export default function SkillIcon (props) {
 
   const classes = "fa-brands " + props.icon.iconClass + " " + style.icon + " ";
   const staticStyle = {
-    color: colorStyle
-  }
+    color: colorStyle,
+  };
 
-  return(
-    <button className={style.button} onClick={props.onClick}>   
-      <i className={classes} style={staticStyle}/>
+  return (
+    <button
+      className={style.button}
+      onClick={() => {
+        props.onClick(props.icon);
+      }}>
+      <i className={classes} style={staticStyle} />
+      <h2>{props.name}</h2>
     </button>
-  )
+  );
 }
