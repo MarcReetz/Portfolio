@@ -3,5 +3,10 @@
   "about_me": "About me",
   "about_me_text": "Hello stranger! I am Marc and I enjoy making stuff on the Internet. It all startet out with some Java and now several years (and projects) later ",
   "skills": "Skills",
-  "skills_text": ""
+  "skills_text": "",
+  "contact":"Contact",
+  "contact_heading":"What’s Next?",
+  "contact_sub_heading":"Get In Touch!",
+  "contact_text":"If you think I fit in to you team or you want to develop a cool Project together with me or if you just want to say Hi just contact me ",
+  "contact_button":"Say Hello"
 }

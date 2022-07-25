@@ -7,7 +7,8 @@
   border-radius: 5px;
   position: relative;
   border-color: var(--main-text-color);
-  padding: 20px;
+  font-size: var(--text-small);
+  padding: 30px 50px;
   transition: box-shadow 500ms ease 0s, transform 500ms ease 0s;
 }
 
