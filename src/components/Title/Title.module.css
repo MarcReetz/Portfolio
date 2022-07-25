@@ -5,6 +5,7 @@
 .line {
   height: 2px;
   background-color: var(--main-text-color-dark);
+  display: flex;
 }
 
 .titleholder{
