@@ -1,0 +1,68 @@
+@import "../../variabels.css";
+
+.button {
+  background-color: var(--main-background-color);
+  border: none;
+  float: right;
+}
+
+.button i {
+  color: var(--main-text-color);
+  font-size: 44px;
+  margin: auto;
+}
+
+.container{
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(16, 16, 50, .1);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  padding: 1em;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 100%;
+}
+
+.navContainer a{
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+.navContainer ol { 
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navContainer li {
+  counter-increment: item 1;
+  text-align: center;
+  margin: 2em;
+}
+
+.navContainer li ::before{
+  content: "0" counter(item) ".";
+  display: block;
+  margin-bottom: 5px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 100%;
+}

@@ -2,24 +2,25 @@
 
 .header {
   width: 100%;
-  height: 50px;
+  padding: 1em;
+  box-sizing: border-box;
   display: flex;
   background: rgba(16, 16, 50, .1);
   backdrop-filter: blur(10px);
   position: fixed;
   flex-direction: row-reverse;
   align-items: center;
-  z-index: 1000;
+  z-index: 998;
 }
 
 .button {
   background-color: var(--main-background-color);
   border: none;
+  height: 46px;
 }
 
-.button i {
+.button i{
   color: var(--main-text-color);
   font-size: 44px;
   margin: auto;
-
 }
