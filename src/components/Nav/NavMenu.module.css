@@ -48,7 +48,7 @@
 .navContainer li {
   counter-increment: item 1;
   text-align: center;
-  margin: 2em;
+  margin: 30px;
 }
 
 .navContainer li ::before{
@@ -65,4 +65,14 @@
   box-sizing: border-box;
   padding: 1rem;
   width: 100%;
+}
+
+.links li {
+  margin-bottom: 30px;
+  list-style-type: none;
+}
+
+.links i {
+  font-size: 44px;
+  color: var(--main-text-color);
 }
