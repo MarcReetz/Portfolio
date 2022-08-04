@@ -1,0 +1,28 @@
+@import "../../variabels.css";
+
+.container{
+  display: grid;
+  grid-template: 25px /repeat(2 ,1fr);
+  width: 100px;
+}
+
+.container button{
+  background-color: var(--main-bg-color);
+  border: 2px solid var(--main-text-color);
+  color: var(--main-text-color);
+}
+
+.borderRight{
+  border-right: 1px solid var(--main-text-color) !important;
+
+}
+
+.borderLeft{
+  border-left: 1px solid var(--main-text-color) !important;
+}
+
+.active {
+  background-color: var(--main-text-color) !important;
+  color: var(--main-bg-color) !important;
+  border-color: var(--main-bg-color) !important;
+}

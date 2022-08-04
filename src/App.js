@@ -16,20 +16,14 @@ function App() {
       i18n.changeLanguage(lang);
   };
 
-  useEffect(() => {
-
-  })
-
   const onClickNav = () => {
     setNavOn(!navOn);
   }
 
-
-
   return (
     <div className="container">
       <Nav onClick={onClickNav} isVisible={!navOn}/>
-      { navOn && <NavMenu onClick={onClickNav}/>}
+      { navOn && <NavMenu onClick={onClickNav} changeLanguageHandler={changeLanguageHandler}/>}
       <Hero/>
       <About/>
       <Contact/>

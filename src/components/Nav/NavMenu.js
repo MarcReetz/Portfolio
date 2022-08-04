@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
+import LangSwitch from "../LangSwitch/LangSwitch";
 import styles from "./NavMenu.module.css";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 export default function NavMenu(props) {
   const { t } = useTranslation();
@@ -10,6 +10,7 @@ export default function NavMenu(props) {
       <button className={styles.button} onClick={props.onClick}>
         <i className="fa-solid fa-x"></i>
       </button>
+      <LangSwitch onClick={props.changeLanguageHandler}/>
       <nav className={styles.navContainer}>
         <ol>
           <li>
