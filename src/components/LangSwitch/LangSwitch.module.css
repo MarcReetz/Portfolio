@@ -1,5 +1,11 @@
 @import "../../variabels.css";
 
+.header{
+  color: var(--main-text-color);
+  text-align: center;
+  margin: 10px 0px;
+}
+
 .container{
   display: grid;
   grid-template: 25px /repeat(2 ,1fr);

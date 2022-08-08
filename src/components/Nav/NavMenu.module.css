@@ -24,6 +24,15 @@
   padding: 1em;
 }
 
+.langSwitchContainer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
 .navContainer {
   display: flex;
   flex-direction: column;

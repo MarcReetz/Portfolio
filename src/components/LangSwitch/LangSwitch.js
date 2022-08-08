@@ -15,7 +15,7 @@ export default function LangSwitch(props) {
 
   return (
     <div>
-      <h4>{t("choose_language")}</h4>
+      <p className={styles.header}>{t("language")}</p>
       <div className={styles.container}>
         <button onClick={() => props.onClick('en')} className={styleLeft.join(' ')}>en</button>
         <button onClick={() => props.onClick('de')} className={styleRight.join(' ')}>de</button>

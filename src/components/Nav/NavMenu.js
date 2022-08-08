@@ -10,7 +10,9 @@ export default function NavMenu(props) {
       <button className={styles.button} onClick={props.onClick}>
         <i className="fa-solid fa-x"></i>
       </button>
-      <LangSwitch onClick={props.changeLanguageHandler}/>
+      <div className={styles.langSwitchContainer}>
+        <LangSwitch onClick={props.changeLanguageHandler} />
+      </div>
       <nav className={styles.navContainer}>
         <ol>
           <li>
