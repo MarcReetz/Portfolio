@@ -20,14 +20,12 @@ export default function SkillWall() {
 
   const relationsCheck = (name, level, skillsC) => {
     let skill = skills.find((element) => element.name === name);
-    console.log("skill is " + skill);
     if (skill) {
       const otherRelations = skill.otherRelations;
 
       skillsC.forEach((element) => {
         if (otherRelations.includes(element.name) && level === 2) {
           element.relations = 3;
-          console.log("has been hid ")
         }
       });
     }
