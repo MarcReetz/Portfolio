@@ -1,51 +1,51 @@
 {
   "icons": [
     {
-      "name": "css3",
+      "name": "Css3",
       "iconClass": "fa-css3-alt",
       "childOff": [],
-      "otherRelations": ["html5"]
+      "otherRelations": ["Html5"]
     },
     {
-      "name": "html5",
+      "name": "Html5",
       "iconClass": "fa-html5",
       "childOff": [],
-      "otherRelations": ["css3"]
+      "otherRelations": ["Css3"]
     },
     {
-      "name": "react",
+      "name": "React",
       "iconClass": "fa-react",
-      "childOff": ["javaScript"],
-      "otherRelations": ["css3", "html5"]
+      "childOff": ["JavaScript"],
+      "otherRelations": ["Css3", "Html5"]
     },
     {
-      "name":"javaScript",
+      "name":"JavaScript",
       "iconClass": "fa-js",
       "childOff": [],
       "otherRelations": []
     },
     {
-      "name":"github",
+      "name":"GitHub",
       "iconClass":"fa-github",
       "childOff": [],
-      "otherRelations": ["git"]
+      "otherRelations": ["Git"]
     },
     {
-      "name":"git",
+      "name":"Git",
       "iconClass":"fa-git",
       "childOff":[],
-      "otherRelations":["github"]
+      "otherRelations":["GitHub"]
     },
     {
-      "name":"npm",
+      "name":"Npm",
       "iconClass":"fa-npm",
-      "childOff":["node"],
+      "childOff":["Node"],
       "otherRelations":[]
     },
     {
-      "name":"node",
+      "name":"Node",
       "iconClass":"fa-node",
-      "childOff":["javaScript"],
+      "childOff":["JavaScript"],
       "otherRelations":[]
     }
   ]
