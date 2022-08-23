@@ -1,0 +1,18 @@
+@import "../../variabels.css";
+
+.container{
+  background-color:  var(--secondary-bg-color);
+  color: var(--secondary-text-color-dark);
+  -webkit-box-shadow: 0px 5px 5px 0px var(--main-bg-color-dark); 
+  box-shadow: 0px 5px 5px 0px var(--main-bg-color-dark);
+  border-radius: 5px;
+  padding: 20px;
+  transition: box-shadow 500ms ease 0s, transform 500ms ease 0s;
+}
+
+.container:hover{
+  box-shadow: -4px 4px 0 var(--main-text-color);
+  -webkit-box-shadow: 0px 10px 5px 0px var(--main-bg-color-dark); 
+  box-shadow: 0px 10px 5px 0px var(--main-bg-color-dark);
+  transform: translateY(-4px);
+}
