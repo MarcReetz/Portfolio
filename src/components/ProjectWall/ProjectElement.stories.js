@@ -13,5 +13,6 @@ export const First = Template.bind({})
 
 First.args = {
   title:'super nice Project',
-  text:'i developed a super nice project'
+  text:'i developed a super nice project',
+  link:"https://www.google.com"
 }
