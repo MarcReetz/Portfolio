@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SkillIcon from "./SkillIcon";
-import SkillsJson from "./../../../public/techRelations/techSkills.json";
 import styles from "./SkillWall.module.css"
 import { useTranslation } from "react-i18next";
-import { element } from "prop-types";
+import fetchPublicData from "./../../services/dataFetcher";
 
 export default function SkillWall() {
+
   const { t } = useTranslation(["translation","skills"]);
-  const [skills, setSkills] = useState(SkillsJson.icons);
+  const [skills, setSkills] = useState([]);
   const [selected, setSelected] = useState(false);
   let title = "title";
   let descriptionText = "somethink went wrong";
+
+  useEffect( () => {
+    fetch( "/data/techRelations/techSkills.json")
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      // store Data in State Data Variable
+      setSkills(data.icons);
+      return data;
+    })
+    .catch(function (err) {
+      console.log(err, " error");
+    })
+  },[])
+
 
   const onClick = (skill) => {
     let skillsC = skills.map((element) => {
@@ -47,7 +63,7 @@ export default function SkillWall() {
     }
   };
 
-  let SkillIcons = skills.map((element) => {
+  let SkillIcons = skills.length > 0 && skills.map((element) => {
     return <SkillIcon icon={element} onClick={onClick} key={element.name} />;
   });
 
