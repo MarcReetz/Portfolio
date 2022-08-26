@@ -1,8 +1,11 @@
 @import "../../variabels.css";
 
 .container{
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 30px 30px;
+  grid-template-rows: 30px 1fr;
   background-color:  var(--secondary-bg-color);
-  color: var(--secondary-text-color-dark);
   -webkit-box-shadow: 0px 5px 5px 0px var(--main-bg-color-dark); 
   box-shadow: 0px 5px 5px 0px var(--main-bg-color-dark);
   border-radius: 5px;
@@ -10,6 +13,7 @@
   cursor: pointer;
   transition: box-shadow 500ms ease 0s, transform 500ms ease 0s;
   text-decoration: none;
+  color: var(--secondary-text-color-dark);
 }
 
 .container:hover{
@@ -20,8 +24,65 @@
 }
 
 .symbol{
+  font-size: 20px;
+  display:block;
+  /*color: var(--secondary-text-color-dark);*/
+}
+
+.git{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.website{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.fullLink::before{
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
 }
 
 .link{
   text-decoration: none;
+  color: var(--secondary-text-color-dark);
+  z-index: 1;
+}
+
+.link:hover{
+  color: var(--main-text-color);
+}
+
+.title{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.text{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.center{
+  display: flex;
+  align-items:center;
+  justify-content: center;
 }
