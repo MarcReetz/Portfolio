@@ -5,6 +5,8 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Hero from "./pages/Hero/Hero";
 import { useTranslation } from "react-i18next";
+import Projects from "./pages/Projects/Projects";
+import Skills from "./pages/Skills/Skills"
 //import Skills from "./pages/Skills/Skills";
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
       { navOn && <NavMenu onClick={onClickNav} changeLanguageHandler={changeLanguageHandler}/>}
       <Hero/>
       <About/>
+      <Skills />
+      <Projects />
       <Contact/>
     </div>
   );
