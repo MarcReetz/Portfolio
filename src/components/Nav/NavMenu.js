@@ -21,6 +21,16 @@ export default function NavMenu(props) {
             </a>
           </li>
           <li>
+            <a href="#skils" onClick={props.onClick}>
+              {t("skills")}
+            </a>
+          </li>
+          <li>
+            <a href="#projects" onClick={props.onClick}>
+              {t("projects")}
+            </a>
+          </li>
+          <li>
             <a href="#contact" onClick={props.onClick}>
               {t("contact")}
             </a>
