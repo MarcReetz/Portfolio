@@ -6,6 +6,7 @@
   height: 2px;
   background-color: var(--main-text-color-dark);
   display: flex;
+  margin-bottom: 50px;
 }
 
 .titleholder{
