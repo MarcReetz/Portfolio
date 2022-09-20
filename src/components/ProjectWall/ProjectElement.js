@@ -1,8 +1,21 @@
+import { composeStories } from "@storybook/react";
 import { useTranslation } from "react-i18next";
 import styles from "./ProjectElement.module.css";
 
 export default function ProjectElement(props) {
   const { t } = useTranslation();
+
+  console.log("props tech are")
+  console.log(props.techs)
+
+  let techs;
+  if (props.techs) {
+    techs = props.techs.map((element) => {
+      return <p key={element}>{element}</p>;
+    });
+  }
+  console.log("techs are:")
+  console.log(techs)
 
   return (
     <div className={styles.container}>
@@ -42,6 +55,7 @@ export default function ProjectElement(props) {
         </h4>
       </div>
       <p className={styles.text}>{t(props.text)}</p>
+      {techs && <div className={styles.tags}>{techs}</div>}
     </div>
   );
 }

@@ -12,5 +12,5 @@ const Template = (args) => <Projects {...args}/>
 export const First = Template.bind({})
 
 First.args = {
-
+  
 }

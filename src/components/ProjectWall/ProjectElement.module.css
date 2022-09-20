@@ -4,7 +4,7 @@
   display: grid;
   position: relative;
   grid-template-columns: 1fr 30px 30px;
-  grid-template-rows: 30px 1fr;
+  grid-template-rows: 30px 1fr 30px;
   background-color:  var(--secondary-bg-color);
   -webkit-box-shadow: 0px 5px 5px 0px var(--main-bg-color-dark); 
   box-shadow: 0px 5px 5px 0px var(--main-bg-color-dark);
@@ -85,4 +85,19 @@
   display: flex;
   align-items:center;
   justify-content: center;
+}
+
+.tags{
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.tags p{
+  margin-right: 10px;
+  color: var(--slate);
 }
