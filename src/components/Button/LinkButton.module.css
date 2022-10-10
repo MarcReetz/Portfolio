@@ -8,9 +8,10 @@
   color: var(--main-text-color);
   border: none;
   cursor: pointer;
+  font-size: 1em;
 }
 
-button:after {
+.button::after {
   content: '';
   position: absolute;
   width: 80%;
@@ -23,7 +24,7 @@ button:after {
   transition: transform 0.25s ease-out;
 }
 
-button:hover:after {
+.button:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
