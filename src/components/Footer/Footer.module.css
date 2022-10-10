@@ -1,0 +1,18 @@
+@import "../../variabels.css";
+
+.footer{
+  border-top: 1px solid var(--main-text-color);
+  min-height: 40px;
+  position: relative;
+}
+
+.container{
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+}
