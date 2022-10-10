@@ -1,0 +1,29 @@
+@import "../../variabels.css";
+
+.button{
+  display: inline-block;
+  position: relative;
+  background-color: var(--main-bg-color);
+  box-shadow: none;
+  color: var(--main-text-color);
+  border: none;
+  cursor: pointer;
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 10%;
+  background-color: var(--main-text-color);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+button:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
