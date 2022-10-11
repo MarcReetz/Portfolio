@@ -8,9 +8,10 @@ export default function Footer () {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <LinkButton text={t("imprint")}/>
-        <LinkButton text={t("privacy")}/>
+        <LinkButton text={t("imprint")} link={"/impressum.html"} />
+        <LinkButton text={t("privacy")} link={"/datenschutz.html"}/>
       </div>
+      { }
     </footer>
   )
 } 

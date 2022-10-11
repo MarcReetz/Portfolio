@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState} from "react";
 import Nav from "./components/Nav/Nav";
 import NavMenu from "./components/Nav/NavMenu";
 import About from "./pages/About/About";
@@ -8,13 +8,11 @@ import { useTranslation } from "react-i18next";
 import Projects from "./pages/Projects/Projects";
 import Skills from "./pages/Skills/Skills"
 import Footer from "./components/Footer/Footer";
-//import Skills from "./pages/Skills/Skills";
 
 function App() {
   const { i18n } = useTranslation();
 
   const [navOn,setNavOn] = useState(false);
-  const [legalOn,setLegalOn] = useState(false);
 
   const changeLanguageHandler = (lang) => {
       i18n.changeLanguage(lang);
