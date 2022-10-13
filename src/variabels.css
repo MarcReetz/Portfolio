@@ -23,6 +23,9 @@
   --text-small: 1em;
   --text-medium: 1.5em;
   --text-big: 2em;
+
+  --bp-l: 700px;
+  --bp-m: 600px:
 }
 
 .selectedTechColor{
