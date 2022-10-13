@@ -1,3 +1,5 @@
+
+
 .container{
   border-radius: 5px;  
   border-left: 2px solid var(--main-text-color);
@@ -5,7 +7,14 @@
   border-bottom: 2px solid var(--border-contrast-color);
   border-right: 2px solid var(--border-contrast-color);
   padding: 30px;
-  margin: 20px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    padding: 30px;
+    margin: 20px;
+  }
 }
 
 .clickPromptLayout{

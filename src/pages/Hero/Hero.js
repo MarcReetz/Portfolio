@@ -14,7 +14,7 @@ export default function Hero() {
         <span></span>
         <span></span>
         <span></span>
-      </div> 
+      </div>
     </div>
   );
 }
