@@ -1,11 +1,11 @@
-@import  "../../variabels.css";
+@import "../../variabels.css";
 
 .header {
   width: 100%;
   padding: 1em;
   box-sizing: border-box;
   display: flex;
-  background: rgba(16, 16, 50, .1);
+  background: rgba(16, 16, 50, 0.1);
   backdrop-filter: blur(10px);
   position: fixed;
   flex-direction: row-reverse;
@@ -19,8 +19,23 @@
   height: 46px;
 }
 
-.button i{
+.button i {
   color: var(--main-text-color);
   font-size: 44px;
   margin: auto;
+}
+
+.languageInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  top: 60px;
+  right: 60px;
+  position: fixed;
+  color: var(--main-text-color);
+  white-space: pre-line;
+}
+
+.languageInfo p {
+  margin: 0px;
 }
