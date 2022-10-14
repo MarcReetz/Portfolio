@@ -29,8 +29,8 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  top: 60px;
-  right: 60px;
+  top: 80px;
+  right: 40px;
   position: fixed;
   color: var(--main-text-color);
   white-space: pre-line;
@@ -38,4 +38,9 @@
 
 .languageInfo p {
   margin: 0px;
+}
+
+.languageInfo i {
+  font-size: 1.5em;
+  margin-left: 10px;
 }
