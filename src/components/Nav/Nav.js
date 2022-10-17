@@ -10,7 +10,7 @@ export default function Nav(prop) {
   
   const handleScroll = () => {
     const position = window.pageYOffset;
-    if(position !== 0){
+    if(position !== 0){ 
       setLanguageInfoVisible(false)
     }else{
       setLanguageInfoVisible(true)
