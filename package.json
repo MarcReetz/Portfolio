@@ -10,9 +10,11 @@
     "@testing-library/user-event": "^13.5.0",
     "i18next": "^21.8.11",
     "i18next-http-backend": "^1.4.1",
+    "pixi.js": "^6.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^11.17.4",
+    "react-pixi-fiber": "^1.0.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
