@@ -41,17 +41,17 @@
       "otherRelations":["GitHub"]
     },
     {
-      "name":"Npm",
-      "iconClass":"fa-npm",
-      "fbFactor": 80,
-      "heightDiv":-20,
-      "otherRelations":[]
-    },
-    {
       "name":"Node",
       "iconClass":"fa-node",
       "fbFactor": 80,
       "heightDiv":20,
+      "child": [{
+        "name":"Npm",
+        "iconClass":"fa-npm",
+        "fbFactor": 80,
+        "heightDiv":-20,
+        "otherRelations":[]
+      }],
       "otherRelations":[]
     }
   ]

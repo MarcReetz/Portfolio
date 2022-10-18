@@ -51,33 +51,60 @@ export default function SkillArea() {
       });
   }, []);
 
-  const positions = skills.map((skill) => {
-    const x = (skill.fbFactor / 100) * width;
-    let y = height / 2;
+  //get all Positions
 
-    if (skill.heightDiv) {
-      y = height / 2 + (height / 100) * skill.heightDiv;
-    }
+  const getPositions = (skills,level) => {
+    return skills.reduce((positions, skill) => {
+      const x = (skill.fbFactor / 100) * width;
+      let y = height / 2;
 
-    return {
-      x:x,
-      y:y,
-      name:skill.name,
-      otherRelations: skill.otherRelations
-    };
-  });
+      if (skill.heightDiv) {
+        y = height / 2 + (height / 100) * skill.heightDiv;
+      }
 
-  const lines = positions.reduce((lines,skill) => {
-    return lines.concat(skill.otherRelations.map((relationName) => {
-      const p = positions.find(p => {
-        return p.name === relationName;
+      if (skill.child) {
+        positions = positions.concat(getPositions(skill.child,level+1))
+        console.log("hit")
+      }
+
+      return positions.concat({
+        x: x,
+        y: y,
+        name: skill.name,
+        otherRelations: skill.otherRelations,
+        level: level,
+      });
+    },[]);
+  };
+
+  const positions = getPositions(skills,1)
+
+  console.log(positions)
+
+  //line position
+  const lines = positions.reduce((lines, skill) => {
+    return lines.concat(
+      skill.otherRelations.map((relationName) => {
+        const p = positions.find((p) => {
+          return p.name === relationName;
+        });
+
+        return (
+          <PixiLine
+            key={skill.name + p.name}
+            x={skill.x}
+            y={skill.y}
+            x2={p.x}
+            y2={p.y}
+            color={0xff0000}
+          />
+        );
       })
-
-      return <PixiLine key={skill.name + p.name} x={skill.x} y={skill.y} x2={p.x} y2={p.y} color={0xff0000}/>
-    }))
-  },[])
+    );
+  }, []);
 
   const Texts = positions.map((skill) => {
+    const fontSize = 30/skill.level
 
     return (
       <Text
@@ -89,7 +116,7 @@ export default function SkillArea() {
         style={{
           align: "center",
           fontFamily: "Helvetica, sans-serif",
-          fontSize: 30,
+          fontSize: fontSize,
           fontWeight: 400,
           fill: ["#00ff99"],
         }}
@@ -101,7 +128,6 @@ export default function SkillArea() {
     <Stage options={options} style={style}>
       {Texts}
       {lines}
-      <Line x={0} y={0} x2={600} y2={100} color={0xff0000} />
     </Stage>
   );
 }
