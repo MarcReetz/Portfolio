@@ -4,12 +4,14 @@
       "name": "Css3",
       "iconClass": "fa-css3-alt",
       "fbFactor": 0,
+      "heightDiv":30,
       "otherRelations": ["Html5"]
     },
     {
       "name": "Html5",
       "iconClass": "fa-html5",
       "fbFactor": 0,
+      "heightDiv":-30,
       "otherRelations": ["Css3"]
     },
     {
@@ -28,24 +30,28 @@
       "name":"GitHub",
       "iconClass":"fa-github",
       "fbFactor": 50,
+      "heightDiv":10,
       "otherRelations": ["Git"]
     },
     {
       "name":"Git",
       "iconClass":"fa-git",
       "fbFactor": 50,
+      "heightDiv":-10,
       "otherRelations":["GitHub"]
     },
     {
       "name":"Npm",
       "iconClass":"fa-npm",
       "fbFactor": 80,
+      "heightDiv":-20,
       "otherRelations":[]
     },
     {
       "name":"Node",
       "iconClass":"fa-node",
       "fbFactor": 80,
+      "heightDiv":20,
       "otherRelations":[]
     }
   ]
