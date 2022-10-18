@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import SkillIcon from "./SkillIcon";
 import styles from "./SkillWall.module.css"
 import { useTranslation } from "react-i18next";
-import fetchPublicData from "./../../services/dataFetcher";
 
 export default function SkillWall() {
 

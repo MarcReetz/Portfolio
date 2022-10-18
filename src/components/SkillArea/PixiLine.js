@@ -7,14 +7,14 @@ const TYPE = "Line";
 export const behavior = {
   customDisplayObject: props => new PIXI.Graphics(),
   customApplyProps: function (instance, oldProps, newProps) {
-    const { fill, x, y, width, height, ...newPropsRest } = newProps;
-    const { fill: oldFill, x: oldX, y: oldY, width: oldWidth, height: oldHeight, ...oldPropsRest } = oldProps || {};
+    const { color, x, y, x2, y2, ...newPropsRest } = newProps;
+    const { color: oldColor, x: oldX, y: oldY, x2: oldX2, y2: oldY2,  ...oldPropsRest } = oldProps || {};
     if (typeof oldProps !== "undefined") {
       instance.clear();
     }
-    instance.lineStyle(2, 0xffffff)
-    instance.moveTo(0, 0)
-    instance.lineTo(400, 100);
+    instance.lineStyle(2, color)
+    instance.moveTo(x, y)
+    instance.lineTo(x2, y2);
 
     this.applyDisplayObjectProps(oldPropsRest, newPropsRest);
   },
