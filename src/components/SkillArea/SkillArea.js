@@ -53,17 +53,18 @@ export default function SkillArea() {
 
   //get all Positions
 
-  const getPositions = (skills,level) => {
+  const getPositions = (skills,level, parentName = null) => {
     return skills.reduce((positions, skill) => {
       const x = (skill.fbFactor / 100) * width;
       let y = height / 2;
+      let otherRelations = [...skill.otherRelations]
 
       if (skill.heightDiv) {
         y = height / 2 + (height / 100) * skill.heightDiv;
       }
 
       if (skill.child) {
-        positions = positions.concat(getPositions(skill.child,level+1))
+        positions = positions.concat(getPositions(skill.child,level+1,skill.name))
         console.log("hit")
       }
 
@@ -71,7 +72,8 @@ export default function SkillArea() {
         x: x,
         y: y,
         name: skill.name,
-        otherRelations: skill.otherRelations,
+        otherRelations: otherRelations,
+        parent: parentName,
         level: level,
       });
     },[]);
@@ -82,7 +84,7 @@ export default function SkillArea() {
   console.log(positions)
 
   //line position
-  const lines = positions.reduce((lines, skill) => {
+  let lines = positions.reduce((lines, skill) => {
     return lines.concat(
       skill.otherRelations.map((relationName) => {
         const p = positions.find((p) => {
@@ -102,6 +104,28 @@ export default function SkillArea() {
       })
     );
   }, []);
+
+
+  lines = lines.concat(positions.reduce((lines,skill) => {
+    if(!skill.parent){
+      return lines
+    }
+    const p = positions.find((p) => {
+      return p.name === skill.parent;
+    });
+
+    return lines.concat(<PixiLine
+      key={skill.name + p.name}
+      x={skill.x}
+      y={skill.y}
+      x2={p.x}
+      y2={p.y}
+      color={0x00ff00}
+    />)
+  },[]))
+
+
+
 
   const Texts = positions.map((skill) => {
     const fontSize = 30/skill.level
