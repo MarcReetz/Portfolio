@@ -1,6 +1,7 @@
 import { Stage, Text } from "react-pixi-fiber";
 import { useEffect, useState } from "react";
 import Line from "./PixiLine";
+import PixiLine from "./PixiLine";
 
 export default function SkillArea() {
   const [skills, setSkills] = useState([]);
@@ -50,7 +51,7 @@ export default function SkillArea() {
       });
   }, []);
 
-  const Texts = skills.map((skill) => {
+  const positions = skills.map((skill) => {
     const x = (skill.fbFactor / 100) * width;
     let y = height / 2;
 
@@ -58,10 +59,32 @@ export default function SkillArea() {
       y = height / 2 + (height / 100) * skill.heightDiv;
     }
 
+    return {
+      x:x,
+      y:y,
+      name:skill.name,
+      otherRelations: skill.otherRelations
+    };
+  });
+
+  const lines = positions.reduce((lines,skill) => {
+    return lines.concat(skill.otherRelations.map((relationName) => {
+      const p = positions.find(p => {
+        return p.name === relationName;
+      })
+
+      return <PixiLine key={skill.name + p.name} x={skill.x} y={skill.y} x2={p.x} y2={p.y} color={0xff0000}/>
+    }))
+  },[])
+
+  const Texts = positions.map((skill) => {
+
     return (
       <Text
-        x={x}
-        y={y}
+        key={skill.name}
+        anchor="0.5,0.5"
+        x={skill.x}
+        y={skill.y}
         text={skill.name}
         style={{
           align: "center",
@@ -77,6 +100,7 @@ export default function SkillArea() {
   return (
     <Stage options={options} style={style}>
       {Texts}
+      {lines}
       <Line x={0} y={0} x2={600} y2={100} color={0xff0000} />
     </Stage>
   );

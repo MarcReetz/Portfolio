@@ -18,7 +18,7 @@
       "name": "React",
       "iconClass": "fa-react",      
       "fbFactor": 20,
-      "otherRelations": ["Css3", "Html5"]
+      "otherRelations": ["Css3", "Html5","JavaScript"]
     },
     {
       "name":"JavaScript",
