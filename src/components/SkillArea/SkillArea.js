@@ -1,6 +1,6 @@
 import { Stage, Text } from "react-pixi-fiber";
 import { useEffect, useState } from "react";
-import Line from "./PixiLine";
+import PixiRect from "./PixiRect";
 import PixiLine from "./PixiLine";
 
 export default function SkillArea() {
@@ -27,7 +27,7 @@ export default function SkillArea() {
   const height = 400;
   const options = {
     antialias: true,
-    backgroundColor: 0x56789a,
+    backgroundColor: 0x041526,
     width: width,
     height: height,
   };
@@ -55,7 +55,7 @@ export default function SkillArea() {
 
   const getPositions = (skills,level, parentName = null) => {
     return skills.reduce((positions, skill) => {
-      const x = (skill.fbFactor / 100) * width;
+      const x = (skill.fbFactor / 100) * (width - 100) + 50;
       let y = height / 2;
       let otherRelations = [...skill.otherRelations]
 
@@ -124,11 +124,8 @@ export default function SkillArea() {
     />)
   },[]))
 
-
-
-
   const Texts = positions.map((skill) => {
-    const fontSize = 30/skill.level
+    const fontSize = 20 - 5 * (skill.level - 1)
 
     return (
       <Text
@@ -139,7 +136,7 @@ export default function SkillArea() {
         text={skill.name}
         style={{
           align: "center",
-          fontFamily: "Helvetica, sans-serif",
+          fontFamily: "'Roboto Mono', monospace",
           fontSize: fontSize,
           fontWeight: 400,
           fill: ["#00ff99"],
@@ -148,10 +145,27 @@ export default function SkillArea() {
     );
   });
 
+
+  const rects = positions.map((skill) => {
+    const fontSize = 13 - 5 * (skill.level - 1)
+    return (
+      <PixiRect
+        key={skill.name}
+        x={skill.x}
+        y={skill.y}
+        width={fontSize * skill.name.length}
+        height={30}
+        fill={0x041526}
+      />
+    )
+  }
+  )
+
   return (
     <Stage options={options} style={style}>
-      {Texts}
       {lines}
+      {rects}
+      {Texts}
     </Stage>
   );
 }

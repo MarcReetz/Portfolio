@@ -23,7 +23,7 @@
     {
       "name":"JavaScript",
       "iconClass": "fa-js",
-      "fbFactor": 30,
+      "fbFactor": 35,
       "otherRelations": []
     },
     {
@@ -49,7 +49,7 @@
         "name":"Npm",
         "iconClass":"fa-npm",
         "fbFactor": 80,
-        "heightDiv":-20,
+        "heightDiv":-10,
         "otherRelations":[]
       }],
       "otherRelations":[]
