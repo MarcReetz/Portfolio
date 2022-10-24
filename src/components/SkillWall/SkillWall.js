@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SkillIcon from "./SkillIcon";
 import styles from "./SkillWall.module.css"
 import { useTranslation } from "react-i18next";
@@ -9,7 +9,6 @@ export default function SkillWall() {
   const [skills, setSkills] = useState([]);
   const [selected, setSelected] = useState(false);
   let title = "title";
-  let descriptionText = "somethink went wrong";
 
   useEffect( () => {
     fetch( "/data/techRelations/techSkills.json")

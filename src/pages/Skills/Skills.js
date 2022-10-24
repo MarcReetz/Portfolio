@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Skills.module.css";
 import Title from "../../components/Title/Title";
 import SkillWall from "../../components/SkillWall/SkillWall";
 import { useTranslation } from "react-i18next";
+import SkillArea from "../../components/SkillArea/SkillAreaGraph";
 
 export default function Skills() {
   const { t } = useTranslation();

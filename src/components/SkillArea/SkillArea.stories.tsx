@@ -1,4 +1,5 @@
-import SkillArea from "./SkillArea";
+import React from "react";
+import SkillArea from "./SkillAreaGraph";
 
 export default {
   title:"SkillArea",
@@ -12,3 +13,4 @@ export const First = Template.bind({});
 First.args = {
 
 };
+ 

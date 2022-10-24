@@ -2,9 +2,13 @@ import { Stage, Text } from "react-pixi-fiber";
 import { useEffect, useState } from "react";
 import PixiRect from "./PixiRect";
 import PixiLine from "./PixiLine";
+import { SpringEmbedderGraph, Vertex } from "../../services/SpringEmbedder";
+import React from "react";
 
 export default function SkillArea() {
   const [skills, setSkills] = useState([]);
+
+  const SkillAreas = new SpringEmbedderGraph([new Vertex(1, 2, 3, 4), 1, 2]);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -53,19 +57,21 @@ export default function SkillArea() {
 
   //get all Positions
 
-  const getPositions = (skills,level, parentName = null) => {
+  const getPositions = (skills, level, parentName = null) => {
     return skills.reduce((positions, skill) => {
       const x = (skill.fbFactor / 100) * (width - 100) + 50;
       let y = height / 2;
-      let otherRelations = [...skill.otherRelations]
+      let otherRelations = [...skill.otherRelations];
 
       if (skill.heightDiv) {
         y = height / 2 + (height / 100) * skill.heightDiv;
       }
 
       if (skill.child) {
-        positions = positions.concat(getPositions(skill.child,level+1,skill.name))
-        console.log("hit")
+        positions = positions.concat(
+          getPositions(skill.child, level + 1, skill.name)
+        );
+        console.log("hit");
       }
 
       return positions.concat({
@@ -76,12 +82,12 @@ export default function SkillArea() {
         parent: parentName,
         level: level,
       });
-    },[]);
+    }, []);
   };
 
-  const positions = getPositions(skills,1)
+  const positions = getPositions(skills, 1);
 
-  console.log(positions)
+  console.log(positions);
 
   //line position
   let lines = positions.reduce((lines, skill) => {
@@ -105,27 +111,30 @@ export default function SkillArea() {
     );
   }, []);
 
+  lines = lines.concat(
+    positions.reduce((lines, skill) => {
+      if (!skill.parent) {
+        return lines;
+      }
+      const p = positions.find((p) => {
+        return p.name === skill.parent;
+      });
 
-  lines = lines.concat(positions.reduce((lines,skill) => {
-    if(!skill.parent){
-      return lines
-    }
-    const p = positions.find((p) => {
-      return p.name === skill.parent;
-    });
-
-    return lines.concat(<PixiLine
-      key={skill.name + p.name}
-      x={skill.x}
-      y={skill.y}
-      x2={p.x}
-      y2={p.y}
-      color={0x00ff00}
-    />)
-  },[]))
+      return lines.concat(
+        <PixiLine
+          key={skill.name + p.name}
+          x={skill.x}
+          y={skill.y}
+          x2={p.x}
+          y2={p.y}
+          color={0x00ff00}
+        />
+      );
+    }, [])
+  );
 
   const Texts = positions.map((skill) => {
-    const fontSize = 20 - 5 * (skill.level - 1)
+    const fontSize = 20 - 5 * (skill.level - 1);
 
     return (
       <Text
@@ -145,9 +154,8 @@ export default function SkillArea() {
     );
   });
 
-
   const rects = positions.map((skill) => {
-    const fontSize = 13 - 5 * (skill.level - 1)
+    const fontSize = 13 - 5 * (skill.level - 1);
     return (
       <PixiRect
         key={skill.name}
@@ -157,9 +165,8 @@ export default function SkillArea() {
         height={30}
         fill={0x041526}
       />
-    )
-  }
-  )
+    );
+  });
 
   return (
     <Stage options={options} style={style}>
