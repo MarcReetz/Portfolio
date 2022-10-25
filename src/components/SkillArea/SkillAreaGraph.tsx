@@ -56,10 +56,16 @@ export default function SkillArea() {
         y = height / 2 + (height / 100) * skill.heightDiv;
       }
 
+      let invisible = false;
+
+      if (skill.invisible) {
+        invisible = true;
+      }
+
       const vertex = new Vertex(x, y, repelentForce, springForce, {
         id: skill.name,
         level: level,
-        invisible: false,
+        invisible: invisible,
       });
 
       if (skill.child) {
@@ -76,33 +82,37 @@ export default function SkillArea() {
 
   const vertices: Vertex[] = getPositons(skills, 1);
 
-  if(skills){
-  skills.forEach((skill) => {
-    if (skill.otherRelations) {
-      const otherRelations = [...skill.otherRelations];
-      const vertex = vertices.find((vertex) => {
-        return vertex.data.id === skill.name;
-      });
-      console.log(otherRelations)
-      otherRelations.forEach((relation) => {
-        const vertex2 = vertices.find((vertex) => {
-          return vertex.data.id === relation;
+  if (skills) {
+    skills.forEach((skill) => {
+      if (skill.otherRelations) {
+        const otherRelations = [...skill.otherRelations];
+        const vertex = vertices.find((vertex) => {
+          return vertex.data.id === skill.name;
         });
-        if (vertex && vertex2) {
-            vertex.addEdge(vertex2,springLength);
+        console.log(otherRelations);
+        otherRelations.forEach((relation) => {
+          const vertex2 = vertices.find((vertex) => {
+            return vertex.data.id === relation;
+          });
+          if (vertex && vertex2) {
+            vertex.addEdge(vertex2, springLength);
           }
-      });
-    }
-  });
-}
+        });
+      }
+    });
+  }
 
-console.log(vertices)
+  console.log(vertices);
 
   const graph = new SpringEmbedderGraph(vertices, springForce, repelentForce);
-  graph.orderByAlgorithm(20);
+  graph.orderByAlgorithm(10);
 
   const Texts = graph.vertices.map((vertex) => {
     const fontSize = 20 - 5 * (vertex.data.level - 1);
+
+    if(vertex.data.invisible){
+        return
+    }
 
     return (
       <Text
@@ -124,6 +134,9 @@ console.log(vertices)
 
   const Rects = graph.vertices.map((vertex) => {
     const fontSize = 13 - 5 * (vertex.data.level - 1);
+    if(vertex.data.invisible){
+        return
+    }
     return (
       <PixiRect
         key={vertex.data.id}
@@ -137,13 +150,16 @@ console.log(vertices)
   });
 
   const Lines = graph.vertices.reduce((lines: any, vertex) => {
-    if (vertex.edges.length === 0) {
+    if (vertex.edges.length === 0 || vertex.data.invisible) {
       return lines;
     }
     const x = vertex.x;
     const y = vertex.y;
 
     const result = vertex.edges.map((edge) => {
+      if (edge.vertex.data.invisible) {
+        return;
+      }
       const key = vertex.data.id + edge.vertex.data.id;
       return (
         <PixiLine

@@ -18,7 +18,7 @@
       "name": "React",
       "iconClass": "fa-react",      
       "fbFactor": 20,
-      "otherRelations": ["Css3", "Html5","JavaScript"]
+      "otherRelations": ["Css3", "Html5","JavaScript","invib"]
     },
     {
       "name":"JavaScript",
@@ -27,9 +27,9 @@
       "otherRelations": ["Css3"]
     },
     {
-      "name":"invibbrl",
+      "name":"invib",
       "fbFactor": 35,
       "otherRelations": ["React"],
-      "invisible": true
+      "invisible": false
     }
     ]}
