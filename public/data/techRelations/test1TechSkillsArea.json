@@ -5,7 +5,7 @@
       "iconClass": "fa-css3-alt",
       "fbFactor": 0,
       "heightDiv":30,
-      "otherRelations": ["JavaScript"]
+      "otherRelations": []
     },
     {
       "name": "Html5",
@@ -18,18 +18,20 @@
       "name": "React",
       "iconClass": "fa-react",      
       "fbFactor": 20,
-      "otherRelations": ["Css3", "Html5","JavaScript","invib"]
+      "otherRelations": ["Css3", "Html5","JavaScript","invib"],
+      "isFixed":true
     },
     {
       "name":"JavaScript",
       "iconClass": "fa-js",
       "fbFactor": 35,
-      "otherRelations": ["Css3"]
+      "otherRelations": []
     },
     {
       "name":"invib",
-      "fbFactor": 35,
+      "fbFactor": 50,
       "otherRelations": ["React"],
-      "invisible": false
+      "invisible": false,
+      "isFixed":false
     }
     ]}

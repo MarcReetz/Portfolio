@@ -43,7 +43,7 @@ export default function SkillArea() {
       });
   }, []);
 
-  const repelentForce = 200;
+  const repelentForce = 101;
   const springForce = 1;
   const springLength = 150;
 
@@ -57,16 +57,21 @@ export default function SkillArea() {
       }
 
       let invisible = false;
+      let isFixed = false;
 
       if (skill.invisible) {
         invisible = true;
+      }
+
+      if(skill.isFixed) {
+        isFixed = true
       }
 
       const vertex = new Vertex(x, y, repelentForce, springForce, {
         id: skill.name,
         level: level,
         invisible: invisible,
-      });
+      },isFixed);
 
       if (skill.child) {
         vertices = vertices.concat(getPositons(skill.child, level + 1, vertex));
@@ -105,7 +110,7 @@ export default function SkillArea() {
   console.log(vertices);
 
   const graph = new SpringEmbedderGraph(vertices, springForce, repelentForce);
-  graph.orderByAlgorithm(10);
+  graph.orderByAlgorithm(302);
 
   const Texts = graph.vertices.map((vertex) => {
     const fontSize = 20 - 5 * (vertex.data.level - 1);
