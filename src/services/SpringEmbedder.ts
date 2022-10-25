@@ -2,7 +2,7 @@ export class Vector {
   x: number;
   y: number;
 
-  constructor(x, y) {
+  constructor(x:number, y:number) {
     this.x = x;
     this.y = y;
   }
@@ -22,7 +22,7 @@ export class Point {
   x: number;
   y: number;
 
-  constructor(x, y) {
+  constructor(x:number, y:number) {
     this.x = x;
     this.y = y;
   }
@@ -67,13 +67,12 @@ export class Vertex extends Point {
   springForce: number;
   data: Data;
 
-  constructor(x, y, repelentForce, springForce,data? : Data) {
+  constructor(x:number, y:number, repelentForce:number, springForce:number,data: Data) {
     super(x, y);
     this.repelentForce = repelentForce;
     this.springForce = springForce;
-    if(data){
-      this.data = data
-    }
+    this.data = data
+
   }
 
   addEdge(v: Vertex, springLength: number) {
