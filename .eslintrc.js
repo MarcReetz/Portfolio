@@ -1,7 +1,8 @@
 module.exports = {
   root: true,
-  "extends": [
+  extends: [
     "eslint:recommended",
+    "plugin:react/recommended",
   ],
   env: {
     browser: true,
@@ -16,9 +17,11 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
+  plugins: ["react"],
   rules: {
     "no-unused-vars": "warn",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off"
   },
   overrides: [
     {
