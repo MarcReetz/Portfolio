@@ -1,0 +1,35 @@
+{
+  "skills": [
+    {
+      "name": "Css3",
+      "iconClass": "fa-css3-alt",
+      "fbFactor": 0,
+      "heightDiv":30,
+      "otherRelations": ["JavaScript"]
+    },
+    {
+      "name": "Html5",
+      "iconClass": "fa-html5",
+      "fbFactor": 0,
+      "heightDiv":-30,
+      "otherRelations": []
+    },
+    {
+      "name": "React",
+      "iconClass": "fa-react",      
+      "fbFactor": 20,
+      "otherRelations": ["Css3", "Html5","JavaScript"]
+    },
+    {
+      "name":"JavaScript",
+      "iconClass": "fa-js",
+      "fbFactor": 35,
+      "otherRelations": ["Css3"]
+    },
+    {
+      "name":"invibbrl",
+      "fbFactor": 35,
+      "otherRelations": ["React"],
+      "invisible": true
+    }
+    ]}

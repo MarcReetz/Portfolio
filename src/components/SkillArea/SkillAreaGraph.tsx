@@ -29,7 +29,8 @@ export default function SkillArea() {
   });
 
   useEffect(() => {
-    fetch("/data/techRelations/techSkillsArea.json")
+    // fetch("/data/techRelations/techSkillsArea.json")
+    fetch("/data/techRelations/test1TechSkillsArea.json")
       .then(function (res) {
         return res.json();
       })
@@ -42,9 +43,9 @@ export default function SkillArea() {
       });
   }, []);
 
-  const repelentForce = 10;
-  const springForce = 5;
-  const springLength = 250;
+  const repelentForce = 200;
+  const springForce = 1;
+  const springLength = 150;
 
   const getPositons = (skills: [], level: number, parent?: Vertex) => {
     return skills.reduce((vertices: Vertex[], skill: any): Vertex[] => {
@@ -58,6 +59,7 @@ export default function SkillArea() {
       const vertex = new Vertex(x, y, repelentForce, springForce, {
         id: skill.name,
         level: level,
+        invisible: false,
       });
 
       if (skill.child) {
@@ -74,8 +76,30 @@ export default function SkillArea() {
 
   const vertices: Vertex[] = getPositons(skills, 1);
 
+  if(skills){
+  skills.forEach((skill) => {
+    if (skill.otherRelations) {
+      const otherRelations = [...skill.otherRelations];
+      const vertex = vertices.find((vertex) => {
+        return vertex.data.id === skill.name;
+      });
+      console.log(otherRelations)
+      otherRelations.forEach((relation) => {
+        const vertex2 = vertices.find((vertex) => {
+          return vertex.data.id === relation;
+        });
+        if (vertex && vertex2) {
+            vertex.addEdge(vertex2,springLength);
+          }
+      });
+    }
+  });
+}
+
+console.log(vertices)
+
   const graph = new SpringEmbedderGraph(vertices, springForce, repelentForce);
-  graph.orderByAlgorithm(30);
+  graph.orderByAlgorithm(20);
 
   const Texts = graph.vertices.map((vertex) => {
     const fontSize = 20 - 5 * (vertex.data.level - 1);
@@ -112,7 +136,7 @@ export default function SkillArea() {
     );
   });
 
-  const Lines = graph.vertices.reduce((lines:any, vertex) => {
+  const Lines = graph.vertices.reduce((lines: any, vertex) => {
     if (vertex.edges.length === 0) {
       return lines;
     }
@@ -120,18 +144,18 @@ export default function SkillArea() {
     const y = vertex.y;
 
     const result = vertex.edges.map((edge) => {
-        const key = vertex.data.id + edge.vertex.data.id;
-        return (
-          <PixiLine
-            key={key}
-            x={x}
-            y={y}
-            x2={edge.vertex.x}
-            y2={edge.vertex.y}
-            color={0x00ff00}
-          />
-        );
-      })
+      const key = vertex.data.id + edge.vertex.data.id;
+      return (
+        <PixiLine
+          key={key}
+          x={x}
+          y={y}
+          x2={edge.vertex.x}
+          y2={edge.vertex.y}
+          color={0x00ff00}
+        />
+      );
+    });
 
     return lines.concat(result);
   }, []);

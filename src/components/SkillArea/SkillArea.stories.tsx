@@ -2,7 +2,7 @@ import React from "react";
 import SkillArea from "./SkillAreaGraph";
 
 export default {
-  title:"SkillArea",
+  title:"SkillAreaGraph",
   component: SkillArea
 }
 
