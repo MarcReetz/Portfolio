@@ -77,8 +77,13 @@ export class Vertex extends Point {
   }
 
   addEdge(v: Vertex, springLength: number) {
-    this.edges = this.edges.concat(new Edge(springLength, v));
-    v.addEdgeRe(this,springLength)
+    const EdgeExists = this.edges.some((edge) => {
+      return edge.vertex.data.id === v.data.id
+    })
+    if(!EdgeExists){
+      this.edges = this.edges.concat(new Edge(springLength, v));
+      v.addEdgeRe(this,springLength)
+    }
   }
 
   addEdgeRe(v: Vertex, springLength: number) {
@@ -112,7 +117,7 @@ export class Vertex extends Point {
 
   repelentForceToOtherVertex(v: Vertex): Vector {
     const resultVector = this.vectorBetween(v);
-    resultVector.multiply(this.repelentForce / this.euclideanDistance(v) ** 2);
+    resultVector.multiply(this.repelentForce / (this.euclideanDistance(v) ** 2 + 0.01)); //0.01 makes sure there is no divison by 0
     return resultVector;
   }
 
@@ -120,7 +125,7 @@ export class Vertex extends Point {
     const resultVector = this.vectorBetween(edge.vertex);
     resultVector.multiply(
       this.springForce *
-        Math.log10(this.euclideanDistance(edge.vertex) / edge.springLength)
+        Math.log10((this.euclideanDistance(edge.vertex) + 0.01)/ edge.springLength) //0.01 makes sure there is no divison by 0
     );
     return resultVector;
   }

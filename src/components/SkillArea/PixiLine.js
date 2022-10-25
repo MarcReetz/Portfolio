@@ -1,5 +1,3 @@
-
-
 import { CustomPIXIComponent } from "react-pixi-fiber";
 import * as PIXI from "pixi.js";
 
