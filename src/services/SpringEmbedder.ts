@@ -102,8 +102,8 @@ export class Vertex extends Point {
   }
 
   displacmentMovement(vs: Vertex[]) {
-    if (this.isFixed){
-      return
+    if (this.isFixed) {
+      return;
     }
     const vector = this.allRepelentForces(vs);
     vector.add(this.allConnectedForces());
@@ -111,28 +111,12 @@ export class Vertex extends Point {
   }
 
   allRepelentForces(vs: Vertex[]) {
-    let is = false
-    if(this.data.id === 'invib'){
-      is = true
-      console.log("start next round")
-    }
     return vs.reduce((vector, vertex) => {
       const isVertexInEdges = this.edges.some((edge) => {
         return edge.vertex.data.id === vertex.data.id;
       });
       if (vertex.data.id !== this.data.id && !isVertexInEdges) {
         vector.add(this.repelentForceToOtherVertex(vertex));
-        if(is){
-        console.log(vertex.data.id)
-        if(vertex.data.id === 'Css3'){
-          console.log("after css3")
-          console.log(vector)
-        }
-        // if(vertex.data.id === 'invib'){
-        //   console.log("after invib")
-        //   console.log(vector)
-        // }
-        }
       }
       return vector;
     }, new Vector(0, 0));
@@ -146,28 +130,26 @@ export class Vertex extends Point {
   }
 
   repelentForceToOtherVertex(v: Vertex): Vector {
-    let change = false
     const resultVector = v.vectorBetween(this);
-    if(resultVector.x === 0){
-      resultVector.x = 2
+    if (resultVector.x === 0) {
+      resultVector.x = 2;
     }
-    if(resultVector.y === 0){
-      resultVector.y = 2
-      change = true
-      console.log(resultVector)
+    if (resultVector.y === 0) {
+      resultVector.y = 2;
     }
-    console.log(resultVector)
-    resultVector.multiply(
-      this.repelentForce / ((this.euclideanDistance(v) ** 2) + 0.01)
-    ); //0.01 makes sure there is no divison by 0
-    if(Number.isNaN(resultVector.x) || Number.isNaN(resultVector.y)){
-      console.log(v)
-      console.log(this.euclideanDistance(v))
-      throw(new Error("repelent forces are not correct"))
+    let force = this.repelentForce / (this.euclideanDistance(v) ** 2 + 0.01);
+    console.log(force);
+    if (force > 10000) {
+      force = 100
     }
-    if(change){
-      console.log("result vector")
-      console.log(resultVector)
+    if (force < -10000) {
+      force = -100;
+    }
+    resultVector.multiply(force); //0.01 makes sure there is no divison by 0
+    if (Number.isNaN(resultVector.x) || Number.isNaN(resultVector.y)) {
+      console.log(v);
+      console.log(this.euclideanDistance(v));
+      throw new Error("repelent forces are not correct");
     }
     //console.log("vertex " + v.data.id + "has a vector" + resultVector.x + ',' + resultVector.y)
     return resultVector;
@@ -175,14 +157,24 @@ export class Vertex extends Point {
 
   forceBetweenConectedVertex(edge: Edge): Vector {
     const resultVector = this.vectorBetween(edge.vertex);
-    resultVector.multiply(
+
+    let force =
       this.springForce *
-        Math.log10(
-          (this.euclideanDistance(edge.vertex) + 0.01) / edge.springLength
-        ) //0.01 makes sure there is no divison by 0
-    );
-    if(Number.isNaN(resultVector.x) || Number.isNaN(resultVector.y)){
-      throw(new Error("connecected"))
+      Math.log10(
+        (this.euclideanDistance(edge.vertex) + 0.01) / edge.springLength
+      ); //0.01 makes sure there is no divison by 0
+
+    // if (force > 10000) {
+    //   force = 100;
+    // }
+    // if (force < -10000) {
+    //   force = -100;
+    // }
+    console.log("betwen" + force);
+
+    resultVector.multiply(force);
+    if (Number.isNaN(resultVector.x) || Number.isNaN(resultVector.y)) {
+      throw new Error("connecected");
     }
     return resultVector;
   }
