@@ -2,57 +2,113 @@
   "skills": [
     {
       "name": "Css3",
-      "iconClass": "fa-css3-alt",
       "fbFactor": 0,
-      "heightDiv":30,
-      "otherRelations": ["Html5"]
+      "heightDiv": 30,
+      "otherRelations": ["Html5","Frontend"]
     },
     {
       "name": "Html5",
-      "iconClass": "fa-html5",
       "fbFactor": 0,
-      "heightDiv":-30,
-      "otherRelations": ["Css3"]
+      "heightDiv": -30,
+      "otherRelations": ["Css3","Frontend"]
     },
     {
       "name": "React",
-      "iconClass": "fa-react",      
+      "iconClass": "fa-react",
       "fbFactor": 20,
-      "otherRelations": ["Css3", "Html5","JavaScript"]
+      "otherRelations": ["Css3", "Html5", "JavaScript"]
     },
     {
-      "name":"JavaScript",
-      "iconClass": "fa-js",
+      "name": "JavaScript",
       "fbFactor": 35,
-      "otherRelations": []
+      "otherRelations": ["Node","staticInvis1"],
+      "child": [
+        {
+          "name": "Typescript",
+          "fbFactor": 20,
+          "heightDiv": -10,
+          "otherRelations": []
+        },
+        {
+          "name": "Json",
+          "fbFactor": 20,
+          "heightDiv": -11,
+          "otherRelations": []
+        }
+      ]
     },
     {
-      "name":"GitHub",
-      "iconClass":"fa-github",
+      "name": "Go",
+      "fbFactor": 70,
+      "heightDiv": 10,
+      "otherRelations": ["Sql"]
+    },
+    {
+      "name": "Sql",
+      "fbFactor": 80,
+      "heightDiv": 10,
+      "otherRelations": ["ExpressJs"],
+      "child": [
+        {
+          "name": "Postgresql",
+          "fbFactor": 20,
+          "heightDiv": -12,
+          "otherRelations": []
+        }
+      ]
+    },
+    {
+      "name": "GitHub",
       "fbFactor": 50,
-      "heightDiv":10,
+      "heightDiv": 10,
       "otherRelations": ["Git"]
     },
     {
-      "name":"Git",
-      "iconClass":"fa-git",
+      "name": "Git",
       "fbFactor": 50,
-      "heightDiv":-10,
-      "otherRelations":["GitHub"]
+      "heightDiv": -10,
+      "otherRelations": ["GitHub"]
     },
     {
-      "name":"Node",
-      "iconClass":"fa-node",
+      "name": "Node",
       "fbFactor": 80,
-      "heightDiv":20,
-      "child": [{
-        "name":"Npm",
-        "iconClass":"fa-npm",
-        "fbFactor": 80,
-        "heightDiv":-10,
-        "otherRelations":[]
-      }],
-      "otherRelations":[]
+      "heightDiv": -30,
+      "child": [
+        {
+          "name": "Npm",
+          "fbFactor": 80,
+          "heightDiv": -10,
+          "otherRelations": []
+        },
+        {
+          "name": "ExpressJs",
+          "fbFactor": 81,
+          "heightDiv": -11,
+          "otherRelations": ["Sql"]
+        }
+      ],
+      "otherRelations": []
+    },
+    {
+      "name": "staticInvis1",
+      "fbFactor": 33,
+      "otherRelations": ["JavaScript", "Git"],
+      "invisible": false,
+      "isFixed": true
+    },
+    {
+      "name": "Frontend",
+      "fbFactor": 20,
+      "invisible": false,
+      "isFixed": true,
+      "otherRelations": ["Html5", "Css3"]
+    },
+    {
+      "name": "Backend",
+      "fbFactor": 80,
+      "invisible": false,
+      "isFixed": true,
+      "otherRelations": ["Git", "Node"]
     }
   ]
 }

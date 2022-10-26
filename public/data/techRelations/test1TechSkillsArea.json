@@ -12,7 +12,7 @@
       "iconClass": "fa-html5",
       "fbFactor": 0,
       "heightDiv":-30,
-      "otherRelations": []
+      "otherRelations": ["Css3"]
     },
     {
       "name": "React",

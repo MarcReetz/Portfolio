@@ -30,7 +30,7 @@ export default function SkillArea() {
 
   useEffect(() => {
     // fetch("/data/techRelations/techSkillsArea.json")
-    fetch("/data/techRelations/test1TechSkillsArea.json")
+    fetch("/data/techRelations/techSkillsArea.json")
       .then(function (res) {
         return res.json();
       })
@@ -43,9 +43,9 @@ export default function SkillArea() {
       });
   }, []);
 
-  const repelentForce = 101;
+  const repelentForce = 600;
   const springForce = 1;
-  const springLength = 150;
+  const springLength = 100;
 
   const getPositons = (skills: [], level: number, parent?: Vertex) => {
     return skills.reduce((vertices: Vertex[], skill: any): Vertex[] => {
@@ -63,22 +63,29 @@ export default function SkillArea() {
         invisible = true;
       }
 
-      if(skill.isFixed) {
-        isFixed = true
+      if (skill.isFixed) {
+        isFixed = true;
       }
 
-      const vertex = new Vertex(x, y, repelentForce, springForce, {
-        id: skill.name,
-        level: level,
-        invisible: invisible,
-      },isFixed);
+      const vertex = new Vertex(
+        x,
+        y,
+        repelentForce,
+        springForce,
+        {
+          id: skill.name,
+          level: level,
+          invisible: invisible,
+        },
+        isFixed
+      );
 
       if (skill.child) {
         vertices = vertices.concat(getPositons(skill.child, level + 1, vertex));
       }
 
       if (parent) {
-        parent.addEdge(vertex, springLength);
+        parent.addEdge(vertex, springLength / 2);
       }
 
       return vertices.concat(vertex);
@@ -88,7 +95,7 @@ export default function SkillArea() {
   const vertices: Vertex[] = getPositons(skills, 1);
 
   if (skills) {
-    skills.forEach((skill) => {
+    skills.forEach((skill: any) => {
       if (skill.otherRelations) {
         const otherRelations = [...skill.otherRelations];
         const vertex = vertices.find((vertex) => {
@@ -110,13 +117,13 @@ export default function SkillArea() {
   console.log(vertices);
 
   const graph = new SpringEmbedderGraph(vertices, springForce, repelentForce);
-  graph.orderByAlgorithm(302);
+  graph.orderByAlgorithm(200);
 
   const Texts = graph.vertices.map((vertex) => {
     const fontSize = 20 - 5 * (vertex.data.level - 1);
 
-    if(vertex.data.invisible){
-        return
+    if (vertex.data.invisible) {
+      return;
     }
 
     return (
@@ -139,14 +146,15 @@ export default function SkillArea() {
 
   const Rects = graph.vertices.map((vertex) => {
     const fontSize = 13 - 5 * (vertex.data.level - 1);
-    if(vertex.data.invisible){
-        return
+    if (vertex.data.invisible) {
+      return;
     }
+    console.log("draws rect");
     return (
       <PixiRect
         key={vertex.data.id}
-        x={vertex.data.x}
-        y={vertex.data.y}
+        x={vertex.x}
+        y={vertex.y}
         width={fontSize * vertex.data.id.length}
         height={30}
         fill={0x041526}
@@ -195,9 +203,9 @@ export default function SkillArea() {
 
   return (
     <Stage options={options} style={style}>
-      {Texts}
-      {Rects}
       {Lines}
+      {Rects}
+      {Texts}
     </Stage>
   );
 }
