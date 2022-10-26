@@ -1,4 +1,3 @@
-import { off } from "process";
 
 export class Vector {
   x: number;
@@ -17,6 +16,15 @@ export class Vector {
   multiply(n: number) {
     this.x = this.x * n;
     this.y = this.y * n;
+  }
+
+  divide(n: number) {
+    this.x = this.x / n
+    this.y = this.y / n
+  }
+
+  normalized(distance: number) {
+    return new Vector(this.x/distance || 0 ,this.y / distance || 0)
   }
 }
 
@@ -102,13 +110,14 @@ export class Vertex extends Point {
   }
 
   displacmentMovement(vs: Vertex[]) {
-    if (this.isFixed) {
-      return;
+    if (this.isFixed){
+      return
     }
     const vector = this.allRepelentForces(vs);
     vector.add(this.allConnectedForces());
-    this.move(vector);
+    this.move(vector)
   }
+
 
   allRepelentForces(vs: Vertex[]) {
     return vs.reduce((vector, vertex) => {
@@ -130,53 +139,19 @@ export class Vertex extends Point {
   }
 
   repelentForceToOtherVertex(v: Vertex): Vector {
-    const resultVector = v.vectorBetween(this);
-    if (resultVector.x === 0) {
-      resultVector.x = 2;
-    }
-    if (resultVector.y === 0) {
-      resultVector.y = 2;
-    }
-    let force = this.repelentForce / (this.euclideanDistance(v) ** 2 + 0.01);
-    console.log(force);
-    if (force > 10000) {
-      force = 100
-    }
-    if (force < -10000) {
-      force = -100;
-    }
-    resultVector.multiply(force); //0.01 makes sure there is no divison by 0
-    if (Number.isNaN(resultVector.x) || Number.isNaN(resultVector.y)) {
-      console.log(v);
-      console.log(this.euclideanDistance(v));
-      throw new Error("repelent forces are not correct");
-    }
-    //console.log("vertex " + v.data.id + "has a vector" + resultVector.x + ',' + resultVector.y)
-    return resultVector;
+    const distance = v.euclideanDistance(this) + 0.01; //avoid forces at minimal range
+    const direction = v.vectorBetween(this).normalized(distance)
+    direction.multiply(this.repelentForce)
+    direction.divide(distance **2 * 0.5)
+    return direction
   }
 
   forceBetweenConectedVertex(edge: Edge): Vector {
-    const resultVector = this.vectorBetween(edge.vertex);
-
-    let force =
-      this.springForce *
-      Math.log10(
-        (this.euclideanDistance(edge.vertex) + 0.01) / edge.springLength
-      ); //0.01 makes sure there is no divison by 0
-
-    // if (force > 10000) {
-    //   force = 100;
-    // }
-    // if (force < -10000) {
-    //   force = -100;
-    // }
-    console.log("betwen" + force);
-
-    resultVector.multiply(force);
-    if (Number.isNaN(resultVector.x) || Number.isNaN(resultVector.y)) {
-      throw new Error("connecected");
-    }
-    return resultVector;
+    const vector = edge.vertex.vectorBetween(this)
+    const displacment = edge.springLength - this.euclideanDistance(edge.vertex)
+    const direction = vector.normalized(this.euclideanDistance(edge.vertex))
+    direction.multiply(this.springForce * displacment * 0.5)
+    return direction
   }
 }
 
@@ -184,11 +159,25 @@ export class SpringEmbedderGraph {
   vertices: Vertex[];
   springForce: number;
   repelentForce: number;
+  center: Point
 
-  constructor(vertices: Vertex[], springForce: number, repelentForce: number) {
+  constructor(vertices: Vertex[], springForce: number, repelentForce: number, height:number, width:number) {
     this.vertices = vertices;
     this.springForce = springForce;
     this.repelentForce = repelentForce;
+    this.center = new Point(width /2, height/2)
+  }
+
+  attractToCenter(){
+    this.vertices.forEach(v => {
+      const vector = v.vectorBetween(this.center)
+      const distance = v.euclideanDistance(this.center)
+      const direction = vector.normalized(distance)
+      const x = 2**(1/(this.center.x*10))*distance * 0.001
+      const y = 2**(1/(this.center.y*10))*distance * 0.001
+
+      v.move(new Vector(x * direction.x,y * direction.y))
+    })
   }
 
   orderByAlgorithm(times = 10) {
@@ -197,6 +186,7 @@ export class SpringEmbedderGraph {
       this.vertices.forEach((v) => {
         v.displacmentMovement(this.vertices);
       });
+      this.attractToCenter()
       t++;
     }
   }

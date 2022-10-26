@@ -45,7 +45,7 @@ export default function SkillArea() {
 
   const repelentForce = 600;
   const springForce = 1;
-  const springLength = 100;
+  const springLength = 150;
 
   const getPositons = (skills: [], level: number, parent?: Vertex) => {
     return skills.reduce((vertices: Vertex[], skill: any): Vertex[] => {
@@ -116,8 +116,8 @@ export default function SkillArea() {
 
   console.log(vertices);
 
-  const graph = new SpringEmbedderGraph(vertices, springForce, repelentForce);
-  graph.orderByAlgorithm(200);
+  const graph = new SpringEmbedderGraph(vertices, springForce, repelentForce,height,width);
+  graph.orderByAlgorithm(1000);
 
   const Texts = graph.vertices.map((vertex) => {
     const fontSize = 20 - 5 * (vertex.data.level - 1);
