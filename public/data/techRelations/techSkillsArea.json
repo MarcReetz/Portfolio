@@ -4,13 +4,13 @@
       "name": "Css3",
       "fbFactor": 0,
       "heightDiv": 30,
-      "otherRelations": ["Html5","Frontend"]
+      "otherRelations": ["Html5"]
     },
     {
       "name": "Html5",
       "fbFactor": 0,
       "heightDiv": -30,
-      "otherRelations": ["Css3","Frontend"]
+      "otherRelations": ["Css3"]
     },
     {
       "name": "React",
@@ -21,7 +21,7 @@
     {
       "name": "JavaScript",
       "fbFactor": 35,
-      "otherRelations": ["Node","staticInvis1"],
+      "otherRelations": ["Node"],
       "child": [
         {
           "name": "Typescript",
@@ -33,7 +33,7 @@
           "name": "Json",
           "fbFactor": 20,
           "heightDiv": -11,
-          "otherRelations": []
+          "otherRelations": ["OAuth"]
         }
       ]
     },
@@ -41,7 +41,15 @@
       "name": "Go",
       "fbFactor": 70,
       "heightDiv": 10,
-      "otherRelations": ["Sql"]
+      "otherRelations": ["Sql","Json"],
+      "child": [
+        {
+          "name": "OAuth",
+          "fbFactor": 70,
+          "heightDiv": 11,
+          "otherRelations": ["Json"]
+        }
+      ]
     },
     {
       "name": "Sql",
@@ -60,7 +68,7 @@
     {
       "name": "GitHub",
       "fbFactor": 50,
-      "heightDiv": 10,
+      "heightDiv": -20,
       "otherRelations": ["Git"]
     },
     {
@@ -84,31 +92,10 @@
           "name": "ExpressJs",
           "fbFactor": 81,
           "heightDiv": -11,
-          "otherRelations": ["Sql"]
+          "otherRelations": ["Sql","OAuth"]
         }
       ],
       "otherRelations": []
-    },
-    {
-      "name": "staticInvis1",
-      "fbFactor": 33,
-      "otherRelations": ["JavaScript", "Git"],
-      "invisible": false,
-      "isFixed": true
-    },
-    {
-      "name": "Frontend",
-      "fbFactor": 20,
-      "invisible": false,
-      "isFixed": true,
-      "otherRelations": ["Html5", "Css3"]
-    },
-    {
-      "name": "Backend",
-      "fbFactor": 80,
-      "invisible": false,
-      "isFixed": true,
-      "otherRelations": ["Git", "Node"]
     }
   ]
 }
