@@ -1,7 +1,8 @@
-import SkillArea from "./SkillArea";
+import React from "react";
+import SkillArea from "./SkillAreaGraph";
 
 export default {
-  title:"SkillArea",
+  title:"SkillAreaGraph",
   component: SkillArea
 }
 
@@ -12,3 +13,4 @@ export const First = Template.bind({});
 First.args = {
 
 };
+ 

@@ -22,7 +22,7 @@ export default function ProjectWall () {
   },[])
 
   let projects = projectsList.length > 0 && projectsList.map(element => {
-    return <ProjectElement title={element.name} text={element.text} link={element.link} gitLink={element.gitLink} techs={element.techs}/>
+    return <ProjectElement title={element.name} text={element.text} link={element.link} gitLink={element.gitLink} techs={element.techs} key={element.name}/>
   })
 
   return (

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { SpringEmbedderGraph, Vertex } from "../../services/SpringEmbedder";
-import { Stage, Text } from "react-pixi-fiber";
+import { Stage, Text } from "react-pixi-fiber/index"
 import PixiRect from "./PixiRect";
 import PixiLine from "./PixiLine";
 
 export default function SkillArea() {
   const [dimensions, setDimensions] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
+    height: window.innerHeight || 10,
+    width: window.innerWidth || 10,
   });
 
   const [skills, setSkills] = useState<any>([]);
@@ -18,8 +18,8 @@ export default function SkillArea() {
   useEffect(() => {
     function handleResize() {
       setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
+        height: window.innerHeight || 10,
+        width: window.innerWidth || 10,
       });
     }
     window.addEventListener("resize", handleResize);
@@ -200,6 +200,8 @@ export default function SkillArea() {
     width: width,
     height: height,
   };
+
+  console.log(style)
 
   return (
     <Stage options={options} style={style}>
