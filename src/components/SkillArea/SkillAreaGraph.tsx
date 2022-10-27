@@ -3,6 +3,7 @@ import { SpringEmbedderGraph, Vertex } from "../../services/SpringEmbedder";
 import { Stage, Text } from "react-pixi-fiber/index"
 import PixiRect from "./PixiRect";
 import PixiLine from "./PixiLine";
+import styles from "./SkillArea.module.css"
 
 export default function SkillArea() {
   const [dimensions, setDimensions] = useState({
@@ -12,7 +13,7 @@ export default function SkillArea() {
 
   const [skills, setSkills] = useState<any>([]);
 
-  const width = dimensions.width;
+  const width = dimensions.width/100 * 80;
   const height = 400;
 
   useEffect(() => {
@@ -204,10 +205,13 @@ export default function SkillArea() {
   console.log(style)
 
   return (
+    <div>
+    <div className={styles.canvasScrollLayer}></div>
     <Stage options={options} style={style}>
       {Lines}
       {Rects}
       {Texts}
     </Stage>
+    </div>
   );
 }
