@@ -29,12 +29,12 @@ export default function Nav(prop) {
     <header className={styles.header}>
       {prop.isVisible && (
         <button className={styles.button} onClick={prop.onClick}>
-          <i class="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars"></i>
         </button>
       )}
       {languageInfoVisible && <div className={styles.languageInfo}>
         <p>{t("languageInfo")}</p>
-        <i class="fa-solid fa-turn-up"></i>
+        <i className="fa-solid fa-turn-up"></i>
       </div>}
     </header>
   );

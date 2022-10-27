@@ -44,7 +44,7 @@ export default function NavMenu(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <i class="fa-brands fa-github"></i>
+            <i className="fa-brands fa-github"></i>
           </a>
         </li>
         <li>
@@ -53,7 +53,7 @@ export default function NavMenu(props) {
             target="_blank"
             rel="noreferrer"
           >
-            <i class="fa-brands fa-square-xing"></i>
+            <i className="fa-brands fa-square-xing"></i>
           </a>
         </li>
       </ul>
