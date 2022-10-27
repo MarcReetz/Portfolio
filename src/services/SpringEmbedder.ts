@@ -125,10 +125,10 @@ export class Vertex extends Point {
     let xCorrection = 0
     let yCorrection = 0
 
-    if(newPosition.x < 0){
+    if(newPosition.x < 0 + 30){
       xCorrection = newPosition.x * -1 + 30
     }
-    if(newPosition.x > center.x * 2){
+    if(newPosition.x > center.x * 2 - 30){
       xCorrection = (center.x * 2 - newPosition.x) * -1 -30
     }
     if(newPosition.y < 0){

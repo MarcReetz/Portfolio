@@ -1,4 +1,4 @@
-import { CustomPIXIComponent } from "react-pixi-fiber";
+import { CustomPIXIComponent } from "react-pixi-fiber/index";
 import * as PIXI from "pixi.js";
 
 const TYPE = "Line";
