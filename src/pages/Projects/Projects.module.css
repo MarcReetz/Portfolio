@@ -1,3 +1,10 @@
 .container{
   padding: 10px 50px 50px 50px;
 }
+
+.description{
+  color: var(--main-text-color);
+  font-family: 'Albert Sans', sans-serif;
+  font-size: var(--text-medium);
+  text-align: center;
+}

@@ -11,7 +11,7 @@ export default function Projects () {
     <section id="projects">
       <Title title={t("projects")} number="3"/>
       <div className={styles.container}>
-      <h3>{t("projects_text")}</h3>
+      <h3 className={styles.description}>{t("projects_text")}</h3>
       <ProjectWall/>
       </div>
     </section>
