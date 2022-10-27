@@ -10,7 +10,7 @@ export default function Hero() {
         <p>{t("my_name_is")}</p>
         <h1>Marc Reetz.</h1>
       </div>
-      <div class={style.box}>
+      <div className={style.box}>
         <span></span>
         <span></span>
         <span></span>
