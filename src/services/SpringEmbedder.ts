@@ -109,13 +109,37 @@ export class Vertex extends Point {
     this.edges = this.edges.concat(new Edge(springLength, v));
   }
 
-  displacmentMovement(vs: Vertex[]) {
+  displacmentMovement(vs: Vertex[],center:Point) {
     if (this.isFixed){
       return
     }
-    const vector = this.allRepelentForces(vs);
+    let vector = this.allRepelentForces(vs);
     vector.add(this.allConnectedForces());
+    vector = this.borderCheck(center,vector)
     this.move(vector)
+  }
+
+  borderCheck(center:Point,vector:Vector) {
+    const newPosition = new Point(this.x,this.y)
+    newPosition.move(vector)
+    let xCorrection = 0
+    let yCorrection = 0
+
+    if(newPosition.x < 0){
+      xCorrection = newPosition.x * -1 + 30
+    }
+    if(newPosition.x > center.x * 2){
+      xCorrection = (center.x * 2 - newPosition.x) * -1 -30
+    }
+    if(newPosition.y < 0){
+      yCorrection = newPosition.y * -1 + 30
+    }
+    if(newPosition.y > center.y * 2){
+      yCorrection = (center.y * 2 - newPosition.y) * -1 -30
+    }
+
+    vector.add(new Vector(xCorrection,yCorrection))
+    return vector
   }
 
 
@@ -184,9 +208,9 @@ export class SpringEmbedderGraph {
     let t = 0;
     while (t < times) {
       this.vertices.forEach((v) => {
-        v.displacmentMovement(this.vertices);
+        v.displacmentMovement(this.vertices,this.center);
       });
-      this.attractToCenter()
+      //this.attractToCenter()
       t++;
     }
   }
