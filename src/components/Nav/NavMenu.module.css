@@ -3,7 +3,8 @@
 .button {
   background-color: var(--main-background-color);
   border: none;
-  float: right;
+  position: fixed;
+  right:20px
 }
 
 .button i {
