@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import Footer from "../Footer/Footer";
 import LangSwitch from "../LangSwitch/LangSwitch";
 import styles from "./NavMenu.module.css";
 
