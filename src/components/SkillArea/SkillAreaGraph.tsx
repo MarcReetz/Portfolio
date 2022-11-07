@@ -46,7 +46,11 @@ export default function SkillArea() {
 
   const repelentForce = 600;
   const springForce = 1;
-  const springLength = 150;
+  let springLength = 150;
+
+  if(width > 800){
+    springLength = springLength + ((width-800) * 0.05)
+  }
 
   const getPositons = (skills: [], level: number, parent?: Vertex) => {
     return skills.reduce((vertices: Vertex[], skill: any): Vertex[] => {
