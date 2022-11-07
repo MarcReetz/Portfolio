@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { SpringEmbedderGraph, Vertex } from "../../services/SpringEmbedder";
-import { Stage, Text } from "react-pixi-fiber/index"
+import { Stage, Text } from "react-pixi-fiber/index";
 import PixiRect from "./PixiRect";
 import PixiLine from "./PixiLine";
-import styles from "./SkillArea.module.css"
+import styles from "./SkillArea.module.css";
 
 export default function SkillArea() {
   const [dimensions, setDimensions] = useState({
@@ -13,7 +13,7 @@ export default function SkillArea() {
 
   const [skills, setSkills] = useState<any>([]);
 
-  const width = dimensions.width/100 * 80;
+  const width = (dimensions.width / 100) * 80;
   const height = 400;
 
   useEffect(() => {
@@ -46,7 +46,11 @@ export default function SkillArea() {
 
   const repelentForce = 600;
   const springForce = 1;
-  const springLength = 150;
+  let springLength = 150;
+
+  if(width > 800){
+    springLength = springLength + ((width-800) * 0.05)
+  }
 
   const getPositons = (skills: [], level: number, parent?: Vertex) => {
     return skills.reduce((vertices: Vertex[], skill: any): Vertex[] => {
@@ -117,7 +121,13 @@ export default function SkillArea() {
 
   console.log(vertices);
 
-  const graph = new SpringEmbedderGraph(vertices, springForce, repelentForce,height,width);
+  const graph = new SpringEmbedderGraph(
+    vertices,
+    springForce,
+    repelentForce,
+    height,
+    width
+  );
   graph.orderByAlgorithm(1000);
 
   const Texts = graph.vertices.map((vertex) => {
@@ -139,7 +149,7 @@ export default function SkillArea() {
           fontFamily: "'Roboto Mono', monospace",
           fontSize: fontSize,
           fontWeight: "400",
-          fill: ["#00ff99"],
+          fill: ["#75B1F0"],
         }}
       />
     );
@@ -182,7 +192,7 @@ export default function SkillArea() {
           y={y}
           x2={edge.vertex.x}
           y2={edge.vertex.y}
-          color={0x00ff00}
+          color={0xe0e1e2}
         />
       );
     });
@@ -202,16 +212,18 @@ export default function SkillArea() {
     height: height,
   };
 
-  console.log(style)
+  console.log(style);
 
   return (
     <div>
-    <div className={styles.canvasScrollLayer}></div>
-    <Stage options={options} style={style}>
-      {Lines}
-      {Rects}
-      {Texts}
-    </Stage>
+      <div className={styles.canvasScrollLayer}></div>
+      <div className={styles.containerStage}>
+        <Stage options={options} style={style}>
+          {Lines}
+          {Rects}
+          {Texts}
+        </Stage>
+      </div>
     </div>
   );
 }

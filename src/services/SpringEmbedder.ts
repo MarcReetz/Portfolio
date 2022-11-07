@@ -124,18 +124,19 @@ export class Vertex extends Point {
     newPosition.move(vector)
     let xCorrection = 0
     let yCorrection = 0
+    const borderPosition = 40
 
-    if(newPosition.x < 0 + 30){
-      xCorrection = newPosition.x * -1 + 30
+    if(newPosition.x < 0 + borderPosition){
+      xCorrection = newPosition.x * -1 + borderPosition
     }
     if(newPosition.x > center.x * 2 - 30){
-      xCorrection = (center.x * 2 - newPosition.x) * -1 -30
+      xCorrection = (center.x * 2 - newPosition.x) * -1 -borderPosition
     }
     if(newPosition.y < 0){
-      yCorrection = newPosition.y * -1 + 30
+      yCorrection = newPosition.y * -1 + borderPosition
     }
     if(newPosition.y > center.y * 2){
-      yCorrection = (center.y * 2 - newPosition.y) * -1 -30
+      yCorrection = (center.y * 2 - newPosition.y) * -1 -borderPosition
     }
 
     vector.add(new Vector(xCorrection,yCorrection))
