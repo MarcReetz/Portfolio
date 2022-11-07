@@ -139,7 +139,7 @@ export default function SkillArea() {
           fontFamily: "'Roboto Mono', monospace",
           fontSize: fontSize,
           fontWeight: "400",
-          fill: ["#00ff99"],
+          fill: ["#75B1F0"],
         }}
       />
     );
@@ -182,7 +182,7 @@ export default function SkillArea() {
           y={y}
           x2={edge.vertex.x}
           y2={edge.vertex.y}
-          color={0x00ff00}
+          color={0xE0E1E2}
         />
       );
     });
