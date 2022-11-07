@@ -19,9 +19,7 @@ export default function Contact() {
             <Button text={t("contact_button")} />
           </a>
         </div>
-        <div className={styles.footer}>
-
-        </div>
+        <div className={styles.footer}></div>
       </div>
     </section>
   );
