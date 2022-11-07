@@ -8,11 +8,11 @@ export default function Footer () {
   let imprint,privacy
 
   if(i18n.language === "de"){
-    imprint = "/impressum.html"
-    privacy = "/datenschutz.html"
+    imprint = "../impressum.html"
+    privacy = "../datenschutz.html"
   }else{
-    imprint = "/imprint.html"
-    privacy = "/privacy.html"
+    imprint = "../imprint.html"
+    privacy = "../privacy.html"
   }
 
   return (
