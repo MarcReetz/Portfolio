@@ -1,0 +1,101 @@
+{
+  "skills": [
+    {
+      "name": "Css3",
+      "fbFactor": 0,
+      "heightDiv": 30,
+      "otherRelations": ["Html5"]
+    },
+    {
+      "name": "Html5",
+      "fbFactor": 0,
+      "heightDiv": -30,
+      "otherRelations": ["Css3"]
+    },
+    {
+      "name": "React",
+      "iconClass": "fa-react",
+      "fbFactor": 20,
+      "otherRelations": ["Css3", "Html5", "JavaScript"]
+    },
+    {
+      "name": "JavaScript",
+      "fbFactor": 35,
+      "otherRelations": ["Node"],
+      "child": [
+        {
+          "name": "Typescript",
+          "fbFactor": 20,
+          "heightDiv": -10,
+          "otherRelations": []
+        },
+        {
+          "name": "Json",
+          "fbFactor": 20,
+          "heightDiv": -11,
+          "otherRelations": ["OAuth"]
+        }
+      ]
+    },
+    {
+      "name": "Go",
+      "fbFactor": 70,
+      "heightDiv": 10,
+      "otherRelations": ["Sql","Json"],
+      "child": [
+        {
+          "name": "OAuth",
+          "fbFactor": 70,
+          "heightDiv": 11,
+          "otherRelations": ["Json"]
+        }
+      ]
+    },
+    {
+      "name": "Sql",
+      "fbFactor": 80,
+      "heightDiv": 10,
+      "otherRelations": ["ExpressJs"],
+      "child": [
+        {
+          "name": "Postgresql",
+          "fbFactor": 20,
+          "heightDiv": -12,
+          "otherRelations": []
+        }
+      ]
+    },
+    {
+      "name": "GitHub",
+      "fbFactor": 50,
+      "heightDiv": -20,
+      "otherRelations": ["Git"]
+    },
+    {
+      "name": "Git",
+      "fbFactor": 50,
+      "heightDiv": -10,
+      "otherRelations": ["GitHub"]
+    },
+    {
+      "name": "Node",
+      "fbFactor": 80,
+      "heightDiv": -30,
+      "child": [
+        {
+          "name": "Npm",
+          "fbFactor": 80,
+          "heightDiv": -10,
+          "otherRelations": []
+        },
+        {
+          "name": "ExpressJs",
+          "fbFactor": 81,
+          "heightDiv": -11,
+          "otherRelations": ["Sql","OAuth"]
+        }
+      ],
+      "otherRelations": []
+    }
+  ]
+}
