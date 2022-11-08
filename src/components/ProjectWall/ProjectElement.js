@@ -4,21 +4,23 @@ import styles from "./ProjectElement.module.css";
 export default function ProjectElement(props) {
   const { t } = useTranslation();
 
-  console.log("props tech are")
-  console.log(props.techs)
-
   let techs;
   if (props.techs) {
     techs = props.techs.map((element) => {
       return <p key={element}>{element}</p>;
     });
   }
-  console.log("techs are:")
-  console.log(techs)
+
+  let link = ''
+  if(props.link){
+    link = props.link
+  }else if (props.gitLink) {
+    link = props.gitLink
+  }
 
   return (
     <div className={styles.container}>
-      <a
+      {props.link && (<a
         href={props.link}
         className={[styles.link, styles.website, styles.center].join(" ")}
         target="_blank"
@@ -30,7 +32,8 @@ export default function ProjectElement(props) {
             "fa-solid fa-arrow-up-right-from-square",
           ].join(" ")}
         ></i>
-      </a>
+      </a>)}
+      
       {props.gitLink && (
         <a
           href={props.gitLink}
@@ -44,7 +47,7 @@ export default function ProjectElement(props) {
       <div className={styles.title}>
         <h4>
           <a
-            href={props.link}
+            href={link}
             target="_blank"
             rel="noreferrer"
             className={[styles.link, styles.fullLink].join(" ")}
