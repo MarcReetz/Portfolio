@@ -6,6 +6,19 @@
       "link": "https://marcreetz.github.io/WITI3-Where-is-the-Iss-in-threejs/",
       "gitLink": "https://github.com/MarcReetz/WITI3-Where-is-the-Iss-in-threejs",
       "techs":["Threejs","Js"]
+    },
+    {
+      "name": "Portfolio Page (This Page)",
+      "text": "Showing what Projects I did and What technologies i Use all on a fully custom Monochrom Single Pager.",
+      "gitLink": "https://github.com/MarcReetz/Portfolio",
+      "link":"https://www.marc-reetz.me",
+      "techs":["Js","React","Css3","i18n"]
+    },
+    {
+      "name":"Reverse Job Funnel",
+      "text":" A simble Web Funnel to get Companys to apply to me reversing the usual order. Heavly inspired by some Job Funnels used as instagram adds. Try it out! maybe i am the next person in your team ;)",
+      "gitLink": "https://github.com/MarcReetz/ReverseJobFunnel",
+      "techs":["Js","React","Reactrouter","Css3","Go","PostgreSQL"]
     }
   ]
 }
