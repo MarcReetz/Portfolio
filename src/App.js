@@ -28,8 +28,8 @@ function App() {
       { navOn && <NavMenu onClick={onClickNav} changeLanguageHandler={changeLanguageHandler}/>}
       <Hero/>
       <About/>
-      <Skills />
       <Projects />
+      <Skills />
       <Contact/>
       <Footer/>
     </div>

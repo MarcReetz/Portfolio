@@ -9,7 +9,7 @@ export default function Skills() {
 
   return (
     <section id="skills">
-      <Title number="2" title={t("skills")} />
+      <Title number="3" title={t("skills")} />
       <div className={styles.container}>
         <p>{t("skills_text")}</p>
         <SkillArea/>

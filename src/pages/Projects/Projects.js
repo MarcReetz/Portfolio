@@ -9,7 +9,7 @@ export default function Projects () {
 
   return (
     <section id="projects">
-      <Title title={t("projects")} number="3"/>
+      <Title title={t("projects")} number="2"/>
       <div className={styles.container}>
       <h3 className={styles.description}>{t("projects_text")}</h3>
       <ProjectWall/>
