@@ -1,22 +1,22 @@
 {
   "projects": [
     {
-      "name": "WITI where is the Iss",
-      "text": "Ein kleines Projekt, das Threejs nutzt, das die momentane Position der Iss auf einem 3D Model der Erde Zeigt.",
+      "name": "WITI: Where is the ISS",
+      "text": "Ein kleines Projekt, das Threejs nutzt und die momentane Position der ISS auf einem 3D-Modell der Erde zeigt.",
       "link": "https://marcreetz.github.io/WITI3-Where-is-the-Iss-in-threejs/",
       "gitLink": "https://github.com/MarcReetz/WITI3-Where-is-the-Iss-in-threejs",
       "techs":["Threejs","Js"]
     },
     {
-      "name": "Portfolio seite (diese Seite)",
-      "text": "Eine einfacher monochrom single pager auf dehm ich meine projekte zeige",
+      "name": "Portfolio-Seite (diese Seite)",
+      "text": "Ein einfacher Monochrom-Single-Pager, auf dem ich meine Projekte vorstelle.",
       "gitLink": "https://github.com/MarcReetz/Portfolio",
       "link":"https://www.marc-reetz.me",
       "techs":["Js","React","Css3","i18n"]
     },
     {
       "name":"Reverse Job Funnel",
-      "text":" Ein einfacher Web Funnel damit sich firmen bei mir bewerben können. Stark inspiried durch einige Job Funnels die man als Instagramm werbung kennt. Probiers aus vielleicht bin ich der nächste in deinen Team  ;)",
+      "text":" Ein einfacher Web-Funnel mit dem sich Firmen bei mir bewerben können. Stark inspiriert durch einige Job-Funnels die man aus Instagramm-Werbungen kennt. Probiere es aus! Vielleicht bin ich der Nächste in deinem Team ;)",
       "gitLink": "https://github.com/MarcReetz/ReverseJobFunnel",
       "techs":["Js","React","Reactrouter","Css3","Go","PostgreSQL"]
     }
