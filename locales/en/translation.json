@@ -1,14 +1,14 @@
 {
   "my_name_is": "Hi, my name is",
-  "about": "about",
+  "about": "About",
   "about_me": "About me",
-  "about_me_text": "Hello stranger! I am Marc and I enjoy making stuff on the Internet. It all startet out with some Java and now several years (and projects) later I learn Webtechnologies and I am creating Projects that run in the Net more about that down below",
+  "about_me_text": "Hello stranger! I am Marc and I enjoy making stuff on the Internet. It all started with some Java and now several years (and projects) later I learn Web technologies and I am creating Projects that run in the Net more about that down below. At the moment I am searching for a job as a Software developer",
   "skills": "Skills",
-  "skills_text": "A few Technologies I use can be seen here. The lines between them represent there connection to each other",
+  "skills_text": "A few Technologies I use can be seen here. The lines between them represent their connection to each other.",
   "contact":"Contact",
   "contact_heading":"What’s Next?",
   "contact_sub_heading":"Get In Touch!",
-  "contact_text":"If you think I fit in to you team or you want to develop a cool Project together with me or if you just want to say Hi just contact me ",
+  "contact_text":"If you think I fit into your team, you want to develop a cool project together with me, or if you just want to say Hi, contact me. ",
   "contact_button":"Say Hello",
   "language":"Language:",
   "click_prompt_skills":"Click one of the above logos to see more",
@@ -16,5 +16,5 @@
   "projects_text": "Here you can see some work I did. Enjoy!",
   "imprint":"Imprint",
   "privacy":"Privacy",
-  "languageInfo":"If you prefere German \n change the language here"
+  "languageInfo":"If you prefer German, \n change the language here"
 }
