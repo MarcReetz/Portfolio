@@ -18,6 +18,7 @@
       "name":"Reverse Job Funnel",
       "text":" A simple Web Funnel to get companies to apply to me, reversing the usual order. Heavily inspired by some Job Funnels used as Instagram ads. Try it out! Maybe I am the next person on your team ;)",
       "gitLink": "https://github.com/MarcReetz/ReverseJobFunnel",
+      "link": "https://www.marc-reetz.de",
       "techs":["Js","React","Reactrouter","Css3","Go","PostgreSQL"]
     }
   ]

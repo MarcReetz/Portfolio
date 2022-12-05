@@ -18,6 +18,7 @@
       "name":"Reverse Job Funnel",
       "text":" Ein einfacher Web-Funnel mit dem sich Firmen bei mir bewerben können. Stark inspiriert durch einige Job-Funnels die man aus Instagramm-Werbungen kennt. Probiere es aus! Vielleicht bin ich der Nächste in deinem Team ;)",
       "gitLink": "https://github.com/MarcReetz/ReverseJobFunnel",
+      "link":"https://www.marc-reetz.de",
       "techs":["Js","React","Reactrouter","Css3","Go","PostgreSQL"]
     }
   ]
