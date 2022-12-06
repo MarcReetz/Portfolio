@@ -129,13 +129,13 @@ export class Vertex extends Point {
     if(newPosition.x < 0 + borderPosition){
       xCorrection = newPosition.x * -1 + borderPosition
     }
-    if(newPosition.x > center.x * 2 - 30){
+    if(newPosition.x > center.x * 2 - borderPosition){
       xCorrection = (center.x * 2 - newPosition.x) * -1 -borderPosition
     }
-    if(newPosition.y < 0){
+    if(newPosition.y < 0 + borderPosition){
       yCorrection = newPosition.y * -1 + borderPosition
     }
-    if(newPosition.y > center.y * 2){
+    if(newPosition.y > center.y * 2 - borderPosition){
       yCorrection = (center.y * 2 - newPosition.y) * -1 -borderPosition
     }
 

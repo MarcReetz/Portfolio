@@ -1,7 +1,7 @@
 .canvasScrollLayer {
   z-index: 999;
   position: absolute;
-  width: 300px;
+  width: calc(100% - 70px);
   height: 400px;
 }
 
