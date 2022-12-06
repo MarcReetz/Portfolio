@@ -14,7 +14,11 @@ export default function SkillArea() {
   const [skills, setSkills] = useState<any>([]);
 
   const width = (dimensions.width / 100) * 80;
-  const height = 400;
+  let height = 500;
+
+  if(width < 500){
+    height = 500 + 500 - width * 0.7
+  }
 
   useEffect(() => {
     function handleResize() {
@@ -30,7 +34,6 @@ export default function SkillArea() {
   });
 
   useEffect(() => {
-    // fetch("/data/techRelations/techSkillsArea.json")
     fetch("/data/techRelations/techSkillsArea.json")
       .then(function (res) {
         return res.json();
@@ -214,9 +217,12 @@ export default function SkillArea() {
 
   console.log(style);
 
+
+
+
   return (
     <div>
-      <div className={styles.canvasScrollLayer}></div>
+      <div className={styles.canvasScrollLayer} style={{height:height}}></div>
       <div className={styles.containerStage}>
         <Stage options={options} style={style}>
           {Lines}
