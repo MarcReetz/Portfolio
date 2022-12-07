@@ -3,7 +3,7 @@ import * as PIXI from "pixi.js";
 
 const TYPE = "Line";
 export const behavior = {
-  customDisplayObject: props => new PIXI.Graphics(),
+  customDisplayObject: () => new PIXI.Graphics(),
   customApplyProps: function (instance, oldProps, newProps) {
     const { color, x, y, x2, y2, ...newPropsRest } = newProps;
     const {...oldPropsRest } = oldProps || {};
