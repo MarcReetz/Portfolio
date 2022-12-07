@@ -5,8 +5,6 @@ jobs:
   build:
     name: create-package
     runs-on: ubutu-latest
-    defaults:
-      run:
     
     strategy:
       matrix:
