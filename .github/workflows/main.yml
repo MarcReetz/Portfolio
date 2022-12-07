@@ -4,7 +4,7 @@ on:
 jobs:
   build:
     name: create-package
-    runs-on: ubutu-latest
+    runs-on: ubuntu-latest
     
     strategy:
       matrix:
