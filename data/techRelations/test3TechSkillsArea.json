@@ -1,0 +1,23 @@
+{
+  "skills": [
+    {
+      "name": "React",
+      "iconClass": "fa-react",      
+      "fbFactor": 20,
+      "otherRelations": ["invib"]
+    },
+    {
+      "name":"JavaScript",
+      "iconClass": "fa-js",
+      "fbFactor": 35,
+      "heightDiv":-30,
+      "otherRelations": ["React"]
+    },
+    {
+      "name":"invib",
+      "fbFactor": 50,
+      "otherRelations": ["React","JavaScript"],
+      "invisible": false,
+      "isFixed":true
+    }
+    ]}

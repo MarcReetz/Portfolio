@@ -1,0 +1,52 @@
+{
+  "icons": [
+    {
+      "name": "Css3",
+      "iconClass": "fa-css3-alt",
+      "childOff": [],
+      "otherRelations": ["Html5"]
+    },
+    {
+      "name": "Html5",
+      "iconClass": "fa-html5",
+      "childOff": [],
+      "otherRelations": ["Css3"]
+    },
+    {
+      "name": "React",
+      "iconClass": "fa-react",
+      "childOff": ["JavaScript"],
+      "otherRelations": ["Css3", "Html5"]
+    },
+    {
+      "name":"JavaScript",
+      "iconClass": "fa-js",
+      "childOff": [],
+      "otherRelations": []
+    },
+    {
+      "name":"GitHub",
+      "iconClass":"fa-github",
+      "childOff": [],
+      "otherRelations": ["Git"]
+    },
+    {
+      "name":"Git",
+      "iconClass":"fa-git",
+      "childOff":[],
+      "otherRelations":["GitHub"]
+    },
+    {
+      "name":"Npm",
+      "iconClass":"fa-npm",
+      "childOff":["Node"],
+      "otherRelations":[]
+    },
+    {
+      "name":"Node",
+      "iconClass":"fa-node",
+      "childOff":["JavaScript"],
+      "otherRelations":[]
+    }
+  ]
+}

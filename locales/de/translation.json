@@ -1,0 +1,20 @@
+{
+  "my_name_is": "Moin, mein Name ist",
+  "about": "über",
+  "about_me": "Über mich", 
+  "about_me_text":"Moin! Ich bin Marc und ich liebe es coole Projekte im Internet zu entwicklen. Alles hat damit angefangen, dass ich vor einigen Jahren Java gelernt habe. Heute, einige Projekte und gelernte Programmiersprachen später, beschäftige ich mich mit Webtechnologien und entwickle Dinge die im Net laufen. Mehr dazu weiter unten. Momentan bin ich auf der Suche nach einen Job als Softwareentwickler.",
+  "skills":"Fähigkeiten",
+  "skills_text": "Ein paar Technologien, mit denen ich mich beschäftige, kannst du hier sehen. Die Linien dazwischen repräsentieren mit welchen Technologien diese im Zusammenhang stehen.",
+  "contact":"Kontakt",
+  "contact_heading":"Und jetzt?",
+  "contact_sub_heading":"Get in Touch!",
+  "contact_text":"Wenn du denkst, dass ich in dein Team passe/passen könnte und mit mir zusammen an coolen Projekten arbeiten möchtest oder nur eine Frage hast, dann kontaktiere mich doch einfach.",
+  "contact_button":"Sag Hallo",
+  "language":"Sprache:",
+  "click_prompt_skills":"Einer der oberen Logos ancklicken um mehr zu erfahren",
+  "projects": "Projekte",
+  "projects_text":"Hier sind ein paar Projekte die ich entwickelt habe",
+  "imprint":"Impressum",
+  "privacy":"Datenschutzerklärung",
+  "languageInfo":"This side is also \n available in English"
+}

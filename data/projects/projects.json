@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "name": "WITI: Where is the ISS",
+      "text": "A small Project that Visualises where the ISS is at the moment on a 3D Model of Earth. Made with Threejs.",
+      "link": "https://marcreetz.github.io/WITI3-Where-is-the-Iss-in-threejs/",
+      "gitLink": "https://github.com/MarcReetz/WITI3-Where-is-the-Iss-in-threejs",
+      "techs":["Threejs","Js"]
+    },
+    {
+      "name": "Portfolio Page (This Page)",
+      "text": "Here I show you what projects I did and what technologies I use, all on a fully custom monochrome single pager.",
+      "gitLink": "https://github.com/MarcReetz/Portfolio",
+      "link":"https://www.marc-reetz.me",
+      "techs":["Js","React","Css3","i18n"]
+    },
+    {
+      "name":"Reverse Job Funnel",
+      "text":" A simple Web Funnel to get companies to apply to me, reversing the usual order. Heavily inspired by some Job Funnels used as Instagram ads. Try it out! Maybe I am the next person on your team ;)",
+      "gitLink": "https://github.com/MarcReetz/ReverseJobFunnel",
+      "link": "https://www.marc-reetz.de",
+      "techs":["Js","React","Reactrouter","Css3","Go","PostgreSQL"]
+    },
+    {
+      "name":"Fail-end",
+      "text":"A Web-App with backend to track were I make the most erros while coding. The project also is a playground to learn JWT-Token auth, REST-API and many more thinks",
+      "gitLink":"https://github.com/MarcReetz/fail-end",
+      "techs":["Go","PostgreSQL","REST","Js","React","JWT-Token"]
+    }
+  ]
+}
