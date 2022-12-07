@@ -20,6 +20,12 @@
       "gitLink": "https://github.com/MarcReetz/ReverseJobFunnel",
       "link":"https://www.marc-reetz.de",
       "techs":["Js","React","Reactrouter","Css3","Go","PostgreSQL"]
+    },
+    {
+      "name":"Fail-end",
+      "text":"Eine Web-App um zu tracken, welche meine meist gemachten Fehler beim Programmieren sind. Das Projekt dient auch dazu den Umgang mit REST-API, JWT-Token auth und anderen dingen zu lernen",
+      "gitLink":"https://github.com/MarcReetz/fail-end",
+      "techs":["Go","PostgreSQL","REST","Js","React","JWT-Token"]
     }
   ]
 }
