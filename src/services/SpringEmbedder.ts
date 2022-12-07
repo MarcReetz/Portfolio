@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// not cool FIX! ↑
 
 export class Vector {
   x: number;

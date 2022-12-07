@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// not cool FIX! ↑
 import React, { useEffect, useState } from "react";
 import { SpringEmbedderGraph, Vertex } from "../../services/SpringEmbedder";
 import { Stage, Text } from "react-pixi-fiber/index";
