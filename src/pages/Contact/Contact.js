@@ -15,7 +15,7 @@ export default function Contact() {
           <h4>{t("contact_heading")}</h4>
           <h3>{t("contact_sub_heading")}</h3>
           <p>{t("contact_text")}</p>
-          <a href="mailto:m.reetz.softawre.googlemail.com">
+          <a href="mailto:m.reetz.software@gmail.com">
             <Button text={t("contact_button")} />
           </a>
         </div>
